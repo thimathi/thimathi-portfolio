@@ -3,30 +3,42 @@
 @tailwind utilities;
 
 :root {
-  --background: #f8fafc;
-  --foreground: #090e17;
-  --surface: #ffffff;
-  --surface-card: #f1f5f9;
-  --surface-hover: #e2e8f0;
-  --surface-border: rgba(15, 23, 42, 0.08);
-  --muted: #64748b;
-  --muted-foreground: #475569;
+  --background: #F5F5F2;
+  --foreground: #202124;
+  --surface: #FFFFFF;
+  --surface-card: #FFFFFF;
+  --surface-hover: #EDEDE8;
+  --surface-border: #D9DADD;
+  --surface-raised: #F9F9F7;
+  --surface-muted: #EAEAE5;
+  --muted: #60646C;
+  --muted-foreground: #484B52;
+  --racing-red: #C9362B;
+  --racing-red-soft: #FDEBE9;
+  --grid-line: rgba(0, 0, 0, 0.035);
+  --tech-crosshair: rgba(0, 0, 0, 0.14);
 }
 
 .dark {
-  --background: #07090e;
-  --foreground: #f1f5f9;
-  --surface: #0e121b;
-  --surface-card: #131926;
-  --surface-hover: #1b2336;
-  --surface-border: rgba(255, 255, 255, 0.07);
-  --muted: #94a3b8;
-  --muted-foreground: #64748b;
+  --background: #151617;
+  --foreground: #F3F3F0;
+  --surface: #202224;
+  --surface-card: #202224;
+  --surface-hover: #282A2E;
+  --surface-border: #393B3E;
+  --surface-raised: #26292C;
+  --surface-muted: #1B1D1E;
+  --muted: #B3B5B8;
+  --muted-foreground: #8A8D93;
+  --racing-red: #E03E32;
+  --racing-red-soft: rgba(224, 62, 50, 0.12);
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --tech-crosshair: rgba(255, 255, 255, 0.12);
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
@@ -34,66 +46,48 @@ body {
   background: var(--background);
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Glassmorphism helpers */
-.glass-panel {
-  background: rgba(14, 18, 27, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--surface-border);
+/* Subtle Engineering Cad Grid Background */
+.tech-grid-bg {
+  background-image: 
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
-.light .glass-panel {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(15, 23, 42, 0.08);
+/* Fine Technical Corner Brackets */
+.tech-corners {
+  position: relative;
 }
-
-.glass-card {
-  background: var(--surface-card);
-  border: 1px solid var(--surface-border);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glass-card:hover {
-  border-color: rgba(56, 189, 248, 0.35);
-  box-shadow: 0 10px 30px -10px rgba(0, 242, 254, 0.08);
-}
-
-/* Accent gradient text */
-.text-gradient {
-  background: linear-gradient(135deg, #00f2fe 0%, #38bdf8 50%, #818cf8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-gradient-subtle {
-  background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.light .text-gradient-subtle {
-  background: linear-gradient(135deg, #0f172a 30%, #475569 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Ambient glow orb */
-.ambient-glow {
+.tech-corners::before {
+  content: "";
   position: absolute;
-  border-radius: 9999px;
-  filter: blur(80px);
-  opacity: 0.18;
+  top: -1px;
+  left: -1px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--racing-red);
+  border-left: 2px solid var(--racing-red);
+  pointer-events: none;
+}
+.tech-corners::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 8px;
+  height: 8px;
+  border-bottom: 2px solid var(--racing-red);
+  border-right: 2px solid var(--racing-red);
   pointer-events: none;
 }
 
-/* Custom scrollbar */
+/* Custom Scrollbar - Engineering Clean */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -101,10 +95,38 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
-  border-radius: 4px;
+  background: #71757E;
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: #8A8D95;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #393B3E;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #4F5257;
+}
+
+/* Accessible focus styling */
+:focus-visible {
+  outline: 2px solid var(--racing-red);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

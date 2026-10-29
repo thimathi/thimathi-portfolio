@@ -17,13 +17,24 @@ const config: Config = {
           card: "var(--surface-card)",
           hover: "var(--surface-hover)",
           border: "var(--surface-border)",
+          raised: "var(--surface-raised)",
+          muted: "var(--surface-muted)",
         },
-        accent: {
-          cyan: "#00f2fe",
-          sky: "#38bdf8",
-          blue: "#2563eb",
-          indigo: "#6366f1",
-          teal: "#14b8a6",
+        muted: {
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
+        },
+        racing: {
+          red: "#C9362B",
+          redHover: "#B22F25",
+          redBright: "#E03E32",
+          redSoft: "var(--racing-red-soft)",
+          dark: "#151617",
+          surfaceDark: "#202224",
+          borderDark: "#393B3E",
+          light: "#F5F5F2",
+          surfaceLight: "#FFFFFF",
+          borderLight: "#D9DADD",
         },
       },
       fontFamily: {
@@ -52,20 +63,13 @@ const config: Config = {
           "monospace",
         ],
       },
-      animation: {
-        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "float": "float 6s ease-in-out infinite",
-        "glow": "glow 3s ease-in-out infinite alternate",
-      },
-      keyframes: {
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
-        glow: {
-          "0%": { opacity: "0.4" },
-          "100%": { opacity: "0.8" },
-        },
+      borderRadius: {
+        none: "0px",
+        xs: "2px",
+        sm: "4px",
+        md: "8px",
+        lg: "12px",
+        xl: "16px",
       },
     },
   },

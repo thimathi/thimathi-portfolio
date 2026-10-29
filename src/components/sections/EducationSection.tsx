@@ -3,12 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import {
-  GraduationCap,
-  Award,
   Calendar,
-  CheckCircle2,
-  Sparkles,
-  Building,
 } from "lucide-react";
 import { portfolioData, EducationEntry } from "@/data/portfolioData";
 
@@ -16,39 +11,36 @@ export function EducationSection() {
   const { education } = portfolioData;
 
   return (
-    <section id="education" className="py-24 relative overflow-hidden">
-      {/* Ambient background glows */}
-      <div className="ambient-glow bg-cyan-600/10 w-[500px] h-[500px] top-1/4 -left-20" />
-      <div className="ambient-glow bg-blue-600/10 w-[450px] h-[450px] bottom-10 right-0" />
+    <section id="education" className="py-20 sm:py-24 border-b border-surface-border bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Sector Tag */}
+        <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground uppercase tracking-wider mb-4">
+          <span className="w-2 h-2 bg-racing-red rounded-xs" />
+          <span>SECTOR 07 // ACADEMIC LEDGER & QUALIFICATIONS</span>
+        </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col items-start max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-3">
-            <GraduationCap className="w-3.5 h-3.5" />
-            <span>Academic Qualifications</span>
-          </div>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl text-white dark:text-white light:text-slate-900 tracking-tight mb-4">
+        {/* Section Headline */}
+        <div className="max-w-3xl mb-14">
+          <h2 className="font-display font-bold text-2xl sm:text-4xl text-foreground tracking-tight mb-3">
             Education & Progressive Academic Pathway
           </h2>
-          <p className="text-base sm:text-lg text-slate-400 dark:text-slate-400 light:text-slate-600">
+          <p className="text-sm sm:text-base text-muted leading-relaxed">
             A structured, verified academic journey culminating in a First-Class Honours Computer Science degree specializing in Software Engineering.
           </p>
         </div>
 
-        {/* Education Timeline Cards */}
-        <div className="space-y-8">
-          {education.map((item: EducationEntry) => (
+        {/* Education Ledger Cards */}
+        <div className="space-y-6">
+          {education.map((item: EducationEntry, idx: number) => (
             <div
               key={item.id}
-              className="p-6 sm:p-8 rounded-3xl bg-[#0e1422] dark:bg-[#0e1422] light:bg-white border border-white/[0.08] dark:border-white/[0.08] light:border-slate-200 shadow-xl hover:border-cyan-500/30 transition-all duration-300"
+              className="bg-surface border border-surface-border rounded-xs p-6 sm:p-8 shadow-sm"
             >
-              <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 mb-6 pb-6 border-b border-white/[0.06] dark:border-white/[0.06] light:border-slate-200">
-                {/* Left: Institution Logo & Degree Title */}
+              <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 pb-6 mb-6 border-b border-surface-border">
+                {/* Institution Logos & Degree Title */}
                 <div className="flex items-start gap-4 sm:gap-5">
-                  {/* Institution Logo Box */}
-                  <div className="flex items-center gap-2.5 flex-shrink-0">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white p-2 flex items-center justify-center shadow-md border border-slate-200">
+                  <div className="flex items-center gap-2 flex-shrink-0">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xs bg-white p-2 flex items-center justify-center shadow-xs border border-surface-border">
                       <div className="relative w-full h-full">
                         <Image
                           src={item.logo}
@@ -61,7 +53,7 @@ export function EducationSection() {
 
                     {item.secondaryLogo && (
                       <div
-                        className="hidden sm:flex w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white p-2 items-center justify-center shadow-md border border-slate-200"
+                        className="hidden sm:flex w-14 h-14 sm:w-16 sm:h-16 rounded-xs bg-white p-2 items-center justify-center shadow-xs border border-surface-border"
                         title={item.deliveryInstitution}
                       >
                         <div className="relative w-full h-full">
@@ -77,55 +69,52 @@ export function EducationSection() {
                   </div>
 
                   <div>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 block mb-1">
-                      {item.degreeType}
-                    </span>
-                    <h3 className="font-display font-bold text-xl sm:text-2xl text-white dark:text-white light:text-slate-900 leading-snug">
+                    <div className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider mb-1">
+                      0{idx + 1} // {item.degreeType}
+                    </div>
+                    <h3 className="font-display font-bold text-lg sm:text-xl text-foreground leading-snug">
                       {item.qualification}
                     </h3>
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-sm text-slate-400">
-                      <span className="font-medium text-slate-200 dark:text-slate-200 light:text-slate-800">
+                    <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 mt-1 text-xs sm:text-sm text-muted">
+                      <span className="font-semibold text-foreground">
                         {item.institution}
                       </span>
                       {item.deliveryInstitution && (
                         <>
                           <span>•</span>
-                          <span className="text-slate-400">
-                            Delivered at: {item.deliveryInstitution}
-                          </span>
+                          <span>Delivered at: {item.deliveryInstitution}</span>
                         </>
                       )}
                     </div>
                   </div>
                 </div>
 
-                {/* Right: Academic Classification / GPA Badges */}
-                <div className="flex flex-wrap lg:flex-col lg:items-end gap-2">
+                {/* Classification / Academic Merit Tags */}
+                <div className="flex flex-wrap lg:flex-col lg:items-end gap-1.5 font-mono text-xs">
                   {item.classification && (
-                    <span className="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm font-semibold flex items-center gap-1.5">
-                      <Award className="w-4 h-4" />
-                      <span>{item.classification}</span>
+                    <span className="px-2.5 py-1 rounded-xs bg-racing-red-soft border border-racing-red/20 text-racing-red font-semibold uppercase">
+                      {item.classification}
                     </span>
                   )}
                   {item.mark && (
-                    <span className="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 dark:text-cyan-300 light:text-cyan-700 text-xs sm:text-sm font-medium">
+                    <span className="px-2 py-0.5 rounded-xs bg-surface-muted border border-surface-border text-foreground font-medium">
                       {item.mark}
                     </span>
                   )}
                   {item.gpa && (
-                    <span className="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 dark:text-cyan-300 light:text-cyan-700 text-xs sm:text-sm font-semibold">
+                    <span className="px-2 py-0.5 rounded-xs bg-surface-muted border border-surface-border text-foreground font-medium">
                       {item.gpa}
                     </span>
                   )}
                   {item.awardDate && (
-                    <div className="flex items-center gap-1 text-xs text-slate-400 mt-1">
-                      <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                    <div className="flex items-center gap-1 text-[11px] text-muted-foreground mt-1">
+                      <Calendar className="w-3 h-3 text-muted-foreground" />
                       <span>Awarded: {item.awardDate}</span>
                     </div>
                   )}
                   {item.period && (
-                    <div className="flex items-center gap-1 text-xs text-slate-400 mt-1">
-                      <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                    <div className="flex items-center gap-1 text-[11px] text-muted-foreground mt-1">
+                      <Calendar className="w-3 h-3 text-muted-foreground" />
                       <span>{item.period}</span>
                     </div>
                   )}
@@ -133,18 +122,18 @@ export function EducationSection() {
               </div>
 
               {/* Description */}
-              <p className="text-sm sm:text-base text-slate-300 dark:text-slate-300 light:text-slate-700 leading-relaxed mb-4">
+              <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed mb-5">
                 {item.description}
               </p>
 
               {/* Highlights */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                {item.highlights.map((highlight, idx) => (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+                {item.highlights.map((highlight, highlightIdx) => (
                   <div
-                    key={idx}
-                    className="p-3 rounded-xl bg-white/[0.02] dark:bg-white/[0.02] light:bg-slate-50 border border-white/[0.05] dark:border-white/[0.05] light:border-slate-200 flex items-start gap-2.5 text-xs sm:text-sm text-slate-400 dark:text-slate-400 light:text-slate-600"
+                    key={highlightIdx}
+                    className="p-3 rounded-xs bg-surface-muted border border-surface-border/60 flex items-start gap-2.5 text-xs text-muted"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-xs bg-racing-red mt-1.5 flex-shrink-0" />
                     <span>{highlight}</span>
                   </div>
                 ))}

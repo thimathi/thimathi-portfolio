@@ -8,7 +8,6 @@ import {
   Database,
   Brain,
   Wrench,
-  Sparkles,
   Layers,
 } from "lucide-react";
 import { portfolioData, SkillCategory } from "@/data/portfolioData";
@@ -20,20 +19,29 @@ export function SkillsSection() {
   const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
       case "Code":
-        return <Code className="w-5 h-5 text-cyan-400" />;
+        return <Code className="w-4 h-4 text-racing-red" />;
       case "Smartphone":
-        return <Smartphone className="w-5 h-5 text-teal-400" />;
+        return <Smartphone className="w-4 h-4 text-racing-red" />;
       case "Server":
-        return <Server className="w-5 h-5 text-blue-400" />;
+        return <Server className="w-4 h-4 text-racing-red" />;
       case "Database":
-        return <Database className="w-5 h-5 text-sky-400" />;
+        return <Database className="w-4 h-4 text-racing-red" />;
       case "Brain":
-        return <Brain className="w-5 h-5 text-indigo-400" />;
+        return <Brain className="w-4 h-4 text-racing-red" />;
       case "Wrench":
-        return <Wrench className="w-5 h-5 text-amber-400" />;
+        return <Wrench className="w-4 h-4 text-racing-red" />;
       default:
-        return <Layers className="w-5 h-5 text-cyan-400" />;
+        return <Layers className="w-4 h-4 text-racing-red" />;
     }
+  };
+
+  const getCategoryCode = (category: string) => {
+    if (category.includes("Programming")) return "STACK // CORE";
+    if (category.includes("Frontend")) return "STACK // CLIENT";
+    if (category.includes("Backend")) return "STACK // SERVICES";
+    if (category.includes("Data")) return "STACK // DATABASE";
+    if (category.includes("AI")) return "STACK // ML-NLP";
+    return "STACK // TOOLS";
   };
 
   const filteredCategories =
@@ -42,47 +50,46 @@ export function SkillsSection() {
       : skillsGrouped.filter((cat) => cat.category === activeFilter);
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
-      {/* Background ambient accents */}
-      <div className="ambient-glow bg-cyan-600/10 w-[450px] h-[450px] top-1/3 -right-20" />
+    <section id="skills" className="py-20 sm:py-24 border-b border-surface-border bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Sector Tag */}
+        <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground uppercase tracking-wider mb-4">
+          <span className="w-2 h-2 bg-racing-red rounded-xs" />
+          <span>SECTOR 06 // TECHNICAL CAPABILITIES & TOOLING</span>
+        </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col items-start max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Technical Capabilities</span>
-          </div>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl text-white dark:text-white light:text-slate-900 tracking-tight mb-4">
+        {/* Section Headline */}
+        <div className="max-w-3xl mb-12">
+          <h2 className="font-display font-bold text-2xl sm:text-4xl text-foreground tracking-tight mb-3">
             Applied Engineering & Analytical Stack
           </h2>
-          <p className="text-base sm:text-lg text-slate-400 dark:text-slate-400 light:text-slate-600">
+          <p className="text-sm sm:text-base text-muted leading-relaxed">
             A verified, hands-on inventory of languages, frameworks, database architectures, and machine learning toolkits organized by domain.
           </p>
         </div>
 
-        {/* Category Filter Pills */}
+        {/* Category Filter Tabs */}
         <div className="flex flex-wrap gap-2 mb-10 pb-2 overflow-x-auto">
           <button
             type="button"
             onClick={() => setActiveFilter("all")}
-            className={`px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all ${
+            className={`px-3 py-1.5 rounded-xs text-xs font-mono font-medium tracking-wide transition-colors ${
               activeFilter === "all"
-                ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/20"
-                : "bg-white/[0.04] dark:bg-white/[0.04] light:bg-slate-100 hover:bg-white/[0.08] text-slate-300 dark:text-slate-300 light:text-slate-700 border border-white/[0.06] dark:border-white/[0.06] light:border-slate-200"
+                ? "bg-foreground text-background"
+                : "bg-surface hover:bg-surface-hover text-muted-foreground border border-surface-border"
             }`}
           >
-            All Competencies
+            ALL CAPABILITIES
           </button>
           {skillsGrouped.map((cat) => (
             <button
               key={cat.category}
               type="button"
               onClick={() => setActiveFilter(cat.category)}
-              className={`px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all ${
+              className={`px-3 py-1.5 rounded-xs text-xs font-mono font-medium tracking-wide transition-colors ${
                 activeFilter === cat.category
-                  ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40"
-                  : "bg-white/[0.04] dark:bg-white/[0.04] light:bg-slate-100 hover:bg-white/[0.08] text-slate-300 dark:text-slate-300 light:text-slate-700 border border-white/[0.06] dark:border-white/[0.06] light:border-slate-200"
+                  ? "bg-foreground text-background"
+                  : "bg-surface hover:bg-surface-hover text-muted-foreground border border-surface-border"
               }`}
             >
               {cat.category}
@@ -95,25 +102,30 @@ export function SkillsSection() {
           {filteredCategories.map((group: SkillCategory) => (
             <div
               key={group.category}
-              className="p-6 rounded-2xl bg-[#0e1422] dark:bg-[#0e1422] light:bg-white border border-white/[0.07] dark:border-white/[0.07] light:border-slate-200 hover:border-cyan-500/30 transition-all duration-300 shadow-lg flex flex-col justify-between"
+              className="bg-surface border border-surface-border hover:border-racing-red/60 transition-colors rounded-xs p-6 shadow-sm flex flex-col justify-between"
             >
               <div>
                 {/* Category Header */}
-                <div className="flex items-center gap-3 mb-5 pb-3 border-b border-white/[0.06] dark:border-white/[0.06] light:border-slate-200">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.05] dark:bg-white/[0.05] light:bg-slate-100 flex items-center justify-center">
-                    {getCategoryIcon(group.icon)}
+                <div className="flex items-center justify-between pb-3 mb-5 border-b border-surface-border">
+                  <div className="flex items-center gap-2.5">
+                    <div className="p-1.5 rounded-xs bg-surface-raised">
+                      {getCategoryIcon(group.icon)}
+                    </div>
+                    <h3 className="font-display font-bold text-base text-foreground">
+                      {group.category}
+                    </h3>
                   </div>
-                  <h3 className="font-display font-semibold text-base sm:text-lg text-white dark:text-white light:text-slate-900">
-                    {group.category}
-                  </h3>
+                  <span className="font-mono text-[10px] text-muted-foreground font-semibold">
+                    {getCategoryCode(group.category)}
+                  </span>
                 </div>
 
                 {/* Skill Chips */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {group.skills.map((skill) => (
                     <span
                       key={skill.name}
-                      className="px-3 py-1.5 rounded-lg bg-white/[0.04] dark:bg-white/[0.04] light:bg-slate-100 border border-white/[0.06] dark:border-white/[0.06] light:border-slate-200 text-xs font-medium text-slate-200 dark:text-slate-200 light:text-slate-800 hover:border-cyan-500/40 hover:text-cyan-300 transition-colors"
+                      className="px-2.5 py-1 rounded-xs bg-surface-muted border border-surface-border text-xs font-mono text-foreground hover:border-racing-red transition-colors"
                     >
                       {skill.name}
                     </span>

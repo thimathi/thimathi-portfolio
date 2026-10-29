@@ -4,18 +4,17 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import { Menu, X, Sun, Moon, ArrowUpRight, Code2 } from "lucide-react";
+import { Menu, X, Sun, Moon, ArrowRight } from "lucide-react";
 import { portfolioData } from "@/data/portfolioData";
 
 const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Research", href: "#research" },
-  { name: "Skills", href: "#skills" },
-  { name: "Education", href: "#education" },
-  { name: "Contact", href: "#contact" },
+  { name: "About", href: "#about", code: "01" },
+  { name: "Experience", href: "#experience", code: "02" },
+  { name: "Projects", href: "#projects", code: "03" },
+  { name: "Research", href: "#research", code: "04" },
+  { name: "Skills", href: "#skills", code: "05" },
+  { name: "Education", href: "#education", code: "06" },
+  { name: "Contact", href: "#contact", code: "07" },
 ];
 
 export function Navbar() {
@@ -23,7 +22,7 @@ export function Navbar() {
   const { theme, setTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     setMounted(true);
@@ -31,16 +30,18 @@ export function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      // Simple active section detection
       const sections = navItems.map((item) => item.href.substring(1));
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = window.scrollY + 220;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
         if (el && el.offsetTop <= scrollPosition) {
           setActiveSection(sections[i]);
-          break;
+          return;
         }
+      }
+      if (window.scrollY < 200) {
+        setActiveSection("");
       }
     };
 
@@ -48,7 +49,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent background scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -60,7 +60,6 @@ export function Navbar() {
     };
   }, [mobileMenuOpen]);
 
-  // Handle escape key to close mobile menu
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setMobileMenuOpen(false);
@@ -75,97 +74,106 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-[#07090e]/85 dark:bg-[#07090e]/85 light:bg-white/85 backdrop-blur-md border-b border-white/[0.08] dark:border-white/[0.08] light:border-slate-200/80 shadow-lg shadow-black/5"
-          : "bg-transparent border-b border-transparent"
+          ? "bg-background/90 backdrop-blur-md border-b border-surface-border shadow-sm"
+          : "bg-background/80 backdrop-blur-sm border-b border-surface-border/50"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo / Brand */}
+        <div className="flex items-center justify-between h-16 sm:h-18">
+          {/* Logo / Brand Technical Lockup */}
           <Link
             href="#home"
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg p-1"
+            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-1 focus-visible:ring-racing-red p-1 rounded-sm"
           >
-            <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-cyan-500/30 bg-[#090d16] p-0.5 transition-transform duration-300 group-hover:scale-105 shadow-md shadow-cyan-500/10 flex-shrink-0">
+            <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-sm overflow-hidden border border-surface-border bg-surface-card p-0.5 shadow-sm group-hover:border-racing-red transition-colors flex-shrink-0">
               <Image
                 src="/thimathi-logo.png"
                 alt="Thimathi Dissanayake Logo"
-                width={40}
-                height={40}
-                className="w-full h-full object-contain rounded-lg"
+                width={36}
+                height={36}
+                className="w-full h-full object-contain"
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-display font-semibold text-base tracking-tight text-white dark:text-white light:text-slate-900 group-hover:text-cyan-400 transition-colors">
-                {portfolioData.profile.name}
-              </span>
-              <span className="text-[11px] font-medium text-slate-400 tracking-wide uppercase">
-                Engineer & Researcher
+              <div className="flex items-center gap-1.5">
+                <span className="font-display font-bold text-sm tracking-tight text-foreground group-hover:text-racing-red transition-colors">
+                  {portfolioData.profile.name}
+                </span>
+                <span className="w-1.5 h-1.5 rounded-full bg-racing-red" />
+              </div>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                Software · Data · AI Research
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 bg-[#101625]/60 dark:bg-[#101625]/60 light:bg-slate-100/80 border border-white/[0.06] dark:border-white/[0.06] light:border-slate-200/70 rounded-full px-3 py-1.5 backdrop-blur-md">
+          {/* Desktop Navigation - Clean Editorial with Monospace Sector Codes */}
+          <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
               return (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                  className={`px-3 py-1.5 text-xs font-medium tracking-wide transition-colors relative rounded-sm ${
                     isActive
-                      ? "bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 border border-cyan-500/30 font-semibold"
-                      : "text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-white dark:hover:text-white light:hover:text-slate-900 hover:bg-white/[0.05]"
+                      ? "text-foreground font-semibold"
+                      : "text-muted hover:text-foreground"
                   }`}
                 >
-                  {item.name}
+                  <span className="font-mono text-[10px] text-muted-foreground mr-1 opacity-70">
+                    {item.code}.
+                  </span>
+                  <span>{item.name}</span>
+                  {isActive && (
+                    <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-racing-red" />
+                  )}
                 </Link>
               );
             })}
           </nav>
 
-          {/* Right Actions: Theme Toggle & Contact CTA */}
+          {/* Right Action Cluster: Theme Toggle & Contact Button */}
           <div className="hidden sm:flex items-center gap-3">
             {mounted && (
               <button
                 type="button"
                 onClick={toggleTheme}
-                aria-label="Toggle visual theme"
-                className="w-10 h-10 rounded-xl bg-white/[0.05] dark:bg-white/[0.05] light:bg-slate-200/80 hover:bg-white/[0.1] border border-white/[0.08] dark:border-white/[0.08] light:border-slate-300 flex items-center justify-center text-slate-300 dark:text-slate-300 light:text-slate-700 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                aria-label="Toggle theme mode"
+                className="w-8 h-8 rounded-sm bg-surface border border-surface-border hover:border-racing-red hover:text-racing-red flex items-center justify-center text-muted-foreground transition-colors"
               >
                 {theme === "dark" ? (
-                  <Sun className="w-4 h-4 text-amber-300" />
+                  <Sun className="w-3.5 h-3.5" />
                 ) : (
-                  <Moon className="w-4 h-4 text-indigo-600" />
+                  <Moon className="w-3.5 h-3.5" />
                 )}
               </button>
             )}
 
             <Link
               href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-xs font-semibold tracking-wide shadow-md shadow-cyan-500/15 hover:shadow-cyan-500/25 transition-all duration-200 transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-sm bg-foreground text-background hover:bg-racing-red hover:text-white text-xs font-mono font-medium uppercase tracking-wider transition-colors shadow-sm"
             >
-              <span>Get in Touch</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <span>Contact</span>
+              <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu & Theme Toggle */}
           <div className="flex items-center gap-2 lg:hidden">
             {mounted && (
               <button
                 type="button"
                 onClick={toggleTheme}
-                aria-label="Toggle visual theme"
-                className="w-9 h-9 rounded-lg bg-white/[0.05] dark:bg-white/[0.05] light:bg-slate-200/80 border border-white/[0.08] flex items-center justify-center text-slate-300 transition-all"
+                aria-label="Toggle theme mode"
+                className="w-8 h-8 rounded-sm bg-surface border border-surface-border flex items-center justify-center text-muted-foreground"
               >
                 {theme === "dark" ? (
-                  <Sun className="w-4 h-4 text-amber-300" />
+                  <Sun className="w-3.5 h-3.5" />
                 ) : (
-                  <Moon className="w-4 h-4 text-indigo-600" />
+                  <Moon className="w-3.5 h-3.5" />
                 )}
               </button>
             )}
@@ -174,22 +182,25 @@ export function Navbar() {
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle navigation menu"
-              className="w-10 h-10 rounded-xl bg-white/[0.05] dark:bg-white/[0.05] light:bg-slate-200/80 border border-white/[0.08] flex items-center justify-center text-slate-200 dark:text-slate-200 light:text-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+              className="w-9 h-9 rounded-sm bg-surface border border-surface-border flex items-center justify-center text-foreground"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Menu Panel */}
       {mobileMenuOpen && (
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 top-20 z-40 bg-[#07090e]/95 dark:bg-[#07090e]/95 light:bg-white/95 backdrop-blur-xl border-t border-white/[0.08] dark:border-white/[0.08] light:border-slate-200 flex flex-col p-6 animate-in fade-in duration-200 overflow-y-auto"
+          className="fixed inset-0 top-16 z-40 bg-background/98 backdrop-blur-xl border-t border-surface-border flex flex-col p-6 animate-in fade-in duration-150 overflow-y-auto"
         >
-          <nav className="flex flex-col gap-2 my-auto">
+          <div className="font-mono text-[11px] text-muted-foreground uppercase tracking-widest pb-3 border-b border-surface-border mb-4">
+            Navigation Index
+          </div>
+          <nav className="flex flex-col gap-1 my-auto">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
               return (
@@ -197,26 +208,33 @@ export function Navbar() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium transition-all ${
+                  className={`flex items-center justify-between px-3 py-3 border-b border-surface-border/40 text-sm tracking-wide transition-colors ${
                     isActive
-                      ? "bg-cyan-500/10 text-cyan-400 font-semibold border border-cyan-500/20"
-                      : "text-slate-300 dark:text-slate-300 light:text-slate-700 hover:bg-white/[0.05]"
+                      ? "text-racing-red font-semibold bg-surface-hover/50"
+                      : "text-foreground hover:bg-surface-hover/30"
                   }`}
                 >
-                  <span>{item.name}</span>
-                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />}
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-xs text-muted-foreground">
+                      {item.code}
+                    </span>
+                    <span>{item.name}</span>
+                  </div>
+                  {isActive && (
+                    <span className="w-2 h-2 rounded-full bg-racing-red" />
+                  )}
                 </Link>
               );
             })}
           </nav>
 
-          <div className="pt-6 border-t border-white/[0.08] dark:border-white/[0.08] light:border-slate-200 flex flex-col gap-3">
+          <div className="pt-6 border-t border-surface-border flex flex-col gap-3">
             <Link
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-center text-sm font-semibold tracking-wide shadow-lg shadow-cyan-500/20"
+              className="w-full py-3 rounded-sm bg-foreground text-background text-center text-xs font-mono font-medium uppercase tracking-wider hover:bg-racing-red hover:text-white transition-colors"
             >
-              Contact Thimathi
+              Initiate Contact // Send Message
             </Link>
           </div>
         </div>

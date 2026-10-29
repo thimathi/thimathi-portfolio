@@ -6,11 +6,7 @@ import {
   Database,
   Cpu,
   Layout,
-  Server,
-  Layers,
-  GraduationCap,
-  Sparkles,
-  CheckCircle2,
+  Check,
 } from "lucide-react";
 import { portfolioData } from "@/data/portfolioData";
 
@@ -20,131 +16,161 @@ export function AboutSection() {
   const getPillarIcon = (name: string) => {
     switch (name) {
       case "Code2":
-        return <Code2 className="w-6 h-6 text-cyan-400" />;
+        return <Code2 className="w-5 h-5 text-racing-red" />;
       case "Database":
-        return <Database className="w-6 h-6 text-blue-400" />;
+        return <Database className="w-5 h-5 text-racing-red" />;
       case "Cpu":
-        return <Cpu className="w-6 h-6 text-indigo-400" />;
+        return <Cpu className="w-5 h-5 text-racing-red" />;
       case "Layout":
-        return <Layout className="w-6 h-6 text-teal-400" />;
+        return <Layout className="w-5 h-5 text-racing-red" />;
       default:
-        return <Layers className="w-6 h-6 text-cyan-400" />;
+        return <Code2 className="w-5 h-5 text-racing-red" />;
     }
   };
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
-      {/* Background ambient accents */}
-      <div className="ambient-glow bg-cyan-600/10 w-[400px] h-[400px] top-1/4 -left-20" />
-      <div className="ambient-glow bg-blue-600/10 w-[400px] h-[400px] bottom-10 right-0" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col items-start max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Multidisciplinary Background</span>
-          </div>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl text-white dark:text-white light:text-slate-900 tracking-tight">
-            Bridging software engineering, enterprise data pipelines, and intelligent interfaces.
-          </h2>
+    <section id="about" className="py-20 sm:py-24 border-b border-surface-border bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Sector Tag */}
+        <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground uppercase tracking-wider mb-4">
+          <span className="w-2 h-2 bg-racing-red rounded-xs" />
+          <span>SECTOR 02 // PROFILE & MULTIDISCIPLINARY BACKGROUND</span>
         </div>
 
-        {/* Narrative & High-Level Architecture Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+        {/* Section Headline */}
+        <h2 className="font-display font-bold text-2xl sm:text-4xl text-foreground tracking-tight max-w-3xl mb-12">
+          Bridging software engineering, enterprise data pipelines, and intelligent interfaces.
+        </h2>
+
+        {/* Narrative & Philosophy Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start mb-16">
           {/* Main Narrative (7 cols) */}
-          <div className="lg:col-span-7 space-y-5 text-slate-300 dark:text-slate-300 light:text-slate-700 text-base sm:text-lg leading-relaxed">
+          <div className="lg:col-span-7 space-y-5 text-foreground/90 text-sm sm:text-base leading-relaxed">
             <p>
               I am a technology professional working across{" "}
-              <strong className="text-white dark:text-white light:text-slate-900 font-semibold">
+              <strong className="text-foreground font-semibold">
                 software engineering, data engineering, product design, and artificial intelligence research
               </strong>
               . My focus is on building practical, scalable digital solutions that integrate reliable system architecture, useful data pipelines, and thoughtful user experiences.
             </p>
-            <p className="text-slate-400 dark:text-slate-400 light:text-slate-600">
+            <p className="text-muted leading-relaxed">
               In production environments, I manage relational and cloud datasets across PostgreSQL, MySQL, Snowflake, and cloud infrastructure, building automated reporting workflows, statistical models, and reliable schema transformations.
             </p>
-            <p className="text-slate-400 dark:text-slate-400 light:text-slate-600">
+            <p className="text-muted leading-relaxed">
               Alongside backend and data engineering, my academic research investigates affective computing and multimodal machine learning—exploring how textual transformer representations (BERT) and acoustic speech emotion models (CNNs) can be fused to detect burnout-related indicators responsibly.
             </p>
 
             {/* Verified Academic & Professional Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4">
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] dark:bg-white/[0.03] light:bg-slate-100 border border-white/[0.06] dark:border-white/[0.06] light:border-slate-200">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-medium text-slate-200 dark:text-slate-200 light:text-slate-800">
+            <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="p-3 bg-surface border border-surface-border rounded-xs flex items-center gap-3">
+                <div className="w-5 h-5 rounded-xs bg-racing-red-soft flex items-center justify-center flex-shrink-0 text-racing-red">
+                  <Check className="w-3.5 h-3.5" />
+                </div>
+                <span className="text-xs font-mono font-medium text-foreground">
                   First-Class Honours (72%) — UoW
                 </span>
               </div>
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] dark:bg-white/[0.03] light:bg-slate-100 border border-white/[0.06] dark:border-white/[0.06] light:border-slate-200">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-medium text-slate-200 dark:text-slate-200 light:text-slate-800">
-                  Lead Author: CIRS 2026 Academic Research
+
+              <div className="p-3 bg-surface border border-surface-border rounded-xs flex items-center gap-3">
+                <div className="w-5 h-5 rounded-xs bg-racing-red-soft flex items-center justify-center flex-shrink-0 text-racing-red">
+                  <Check className="w-3.5 h-3.5" />
+                </div>
+                <span className="text-xs font-mono font-medium text-foreground">
+                  Lead Author: CIRS 2026 Research
                 </span>
               </div>
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] dark:bg-white/[0.03] light:bg-slate-100 border border-white/[0.06] dark:border-white/[0.06] light:border-slate-200">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-medium text-slate-200 dark:text-slate-200 light:text-slate-800">
+
+              <div className="p-3 bg-surface border border-surface-border rounded-xs flex items-center gap-3">
+                <div className="w-5 h-5 rounded-xs bg-racing-red-soft flex items-center justify-center flex-shrink-0 text-racing-red">
+                  <Check className="w-3.5 h-3.5" />
+                </div>
+                <span className="text-xs font-mono font-medium text-foreground">
                   Data Engineer @ CreativeX Technology
                 </span>
               </div>
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] dark:bg-white/[0.03] light:bg-slate-100 border border-white/[0.06] dark:border-white/[0.06] light:border-slate-200">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-medium text-slate-200 dark:text-slate-200 light:text-slate-800">
+
+              <div className="p-3 bg-surface border border-surface-border rounded-xs flex items-center gap-3">
+                <div className="w-5 h-5 rounded-xs bg-racing-red-soft flex items-center justify-center flex-shrink-0 text-racing-red">
+                  <Check className="w-3.5 h-3.5" />
+                </div>
+                <span className="text-xs font-mono font-medium text-foreground">
                   Product Designer @ NONO AI
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Quick Technical Summary Card (5 cols) */}
-          <div className="lg:col-span-5 p-6 rounded-2xl bg-[#0d121f] dark:bg-[#0d121f] light:bg-white border border-white/[0.08] dark:border-white/[0.08] light:border-slate-200 shadow-xl">
-            <h3 className="font-display font-semibold text-lg text-white dark:text-white light:text-slate-900 mb-4 flex items-center gap-2">
-              <Server className="w-5 h-5 text-cyan-400" />
-              <span>Core Technical Philosophy</span>
-            </h3>
+          {/* Core Technical Philosophy Card (5 cols) */}
+          <div className="lg:col-span-5 bg-surface border border-surface-border rounded-xs p-6 shadow-sm">
+            <div className="flex items-center justify-between pb-3 mb-4 border-b border-surface-border font-mono text-xs">
+              <span className="font-semibold text-foreground uppercase tracking-wider">
+                CORE TECHNICAL PHILOSOPHY
+              </span>
+              <span className="text-racing-red font-mono">CODE // PRINCIPLES</span>
+            </div>
 
-            <div className="space-y-4 text-sm text-slate-300 dark:text-slate-300 light:text-slate-600">
-              <div className="p-3.5 rounded-xl bg-white/[0.02] dark:bg-white/[0.02] light:bg-slate-50 border border-white/[0.05] dark:border-white/[0.05] light:border-slate-200">
-                <span className="font-semibold text-cyan-300 dark:text-cyan-300 light:text-cyan-600 block mb-1">
-                  1. Reliable Systems Over Complexity
+            <div className="space-y-4 text-xs sm:text-sm">
+              <div className="p-3.5 bg-surface-raised border-l-2 border-racing-red rounded-xs">
+                <span className="font-mono text-xs font-semibold text-foreground block mb-1 uppercase tracking-wide">
+                  01 // Reliable Systems Over Complexity
                 </span>
-                Prioritizing clean schema models, automated checks, and type-safety to eliminate runtime fragility.
+                <p className="text-muted leading-relaxed">
+                  Prioritizing clean schema models, automated checks, and type-safety to eliminate runtime fragility.
+                </p>
               </div>
-              <div className="p-3.5 rounded-xl bg-white/[0.02] dark:bg-white/[0.02] light:bg-slate-50 border border-white/[0.05] dark:border-white/[0.05] light:border-slate-200">
-                <span className="font-semibold text-blue-300 dark:text-blue-300 light:text-blue-600 block mb-1">
-                  2. Evidence-Based Data Engineering
+
+              <div className="p-3.5 bg-surface-raised border-l-2 border-racing-red rounded-xs">
+                <span className="font-mono text-xs font-semibold text-foreground block mb-1 uppercase tracking-wide">
+                  02 // Evidence-Based Data Engineering
                 </span>
-                Extracting, validating, and translating enterprise metrics into actionable data schemas that support high-stakes decisions.
+                <p className="text-muted leading-relaxed">
+                  Extracting, validating, and translating enterprise metrics into actionable data schemas that support high-stakes decisions.
+                </p>
               </div>
-              <div className="p-3.5 rounded-xl bg-white/[0.02] dark:bg-white/[0.02] light:bg-slate-50 border border-white/[0.05] dark:border-white/[0.05] light:border-slate-200">
-                <span className="font-semibold text-indigo-300 dark:text-indigo-300 light:text-indigo-600 block mb-1">
-                  3. Ethical, Multimodal AI
+
+              <div className="p-3.5 bg-surface-raised border-l-2 border-racing-red rounded-xs">
+                <span className="font-mono text-xs font-semibold text-foreground block mb-1 uppercase tracking-wide">
+                  03 // Ethical, Multimodal AI
                 </span>
-                Investigating affective computing with rigor, acknowledging boundaries between emotional modeling and clinical diagnoses.
+                <p className="text-muted leading-relaxed">
+                  Investigating affective computing with rigor, acknowledging boundaries between emotional modeling and clinical diagnoses.
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* 4 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {aboutPillars.map((pillar) => (
-            <div
-              key={pillar.title}
-              className="p-6 rounded-2xl bg-[#0f1422] dark:bg-[#0f1422] light:bg-white border border-white/[0.07] dark:border-white/[0.07] light:border-slate-200 hover:border-cyan-500/40 transition-all duration-300 group shadow-md"
-            >
-              <div className="w-12 h-12 rounded-xl bg-white/[0.05] dark:bg-white/[0.05] light:bg-slate-100 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                {getPillarIcon(pillar.icon)}
+        {/* 4 Pillars Matrix */}
+        <div className="pt-8 border-t border-surface-border">
+          <div className="font-mono text-[11px] text-muted-foreground uppercase tracking-wider mb-6">
+            CAPABILITY DOMAINS // 4 CORE PILLARS
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {aboutPillars.map((pillar, idx) => (
+              <div
+                key={pillar.title}
+                className="p-5 bg-surface border border-surface-border hover:border-racing-red/60 transition-colors rounded-xs flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4 pb-2 border-b border-surface-border/60">
+                    <span className="font-mono text-[10px] text-muted-foreground font-semibold">
+                      // PILLAR 0{idx + 1}
+                    </span>
+                    <div className="p-1.5 rounded-xs bg-surface-raised">
+                      {getPillarIcon(pillar.icon)}
+                    </div>
+                  </div>
+                  <h3 className="font-display font-bold text-base text-foreground mb-2">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-xs text-muted leading-relaxed">
+                    {pillar.description}
+                  </p>
+                </div>
               </div>
-              <h3 className="font-display font-semibold text-lg text-white dark:text-white light:text-slate-900 mb-2">
-                {pillar.title}
-              </h3>
-              <p className="text-sm text-slate-400 dark:text-slate-400 light:text-slate-600 leading-relaxed">
-                {pillar.description}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

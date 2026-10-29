@@ -9,12 +9,6 @@ import {
   Linkedin,
   Github,
   BookOpen,
-  Sparkles,
-  Download,
-  Terminal,
-  Database,
-  Cpu,
-  Layers,
 } from "lucide-react";
 import { portfolioData } from "@/data/portfolioData";
 
@@ -24,175 +18,166 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 overflow-hidden"
+      className="relative pt-24 sm:pt-28 pb-16 sm:pb-20 border-b border-surface-border tech-grid-bg"
     >
-      {/* Ambient background glows */}
-      <div className="ambient-glow bg-cyan-500/20 w-[500px] h-[500px] -top-32 -left-20 animate-pulse-slow" />
-      <div className="ambient-glow bg-blue-600/15 w-[600px] h-[600px] top-1/3 -right-32 animate-pulse-slow" />
-      <div className="ambient-glow bg-indigo-600/10 w-[450px] h-[450px] -bottom-20 left-1/3" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Top Telemetry / Sector Index Line */}
+        <div className="flex items-center justify-between pb-6 mb-8 border-b border-surface-border/70 text-xs font-mono text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 bg-racing-red rounded-xs" />
+            <span className="tracking-wider uppercase font-semibold text-foreground">
+              DOSSIER // 01
+            </span>
+            <span className="text-surface-border">/</span>
+            <span className="hidden sm:inline">ENGINEERING & RESEARCH OVERVIEW</span>
+          </div>
+          <div className="flex items-center gap-4 text-[11px]">
+            <span className="hidden md:inline">SYSTEM: ACTIVE</span>
+            <span className="text-surface-border hidden md:inline">/</span>
+            <span className="text-foreground font-medium">SRI LANKA (IST // UTC+5:30)</span>
+          </div>
+        </div>
 
-      {/* Subtle background tech grid */}
-      <div
-        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #38bdf8 1px, transparent 0)`,
-          backgroundSize: "36px 36px",
-        }}
-      />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        {/* Main Hero Editorial Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Left Column: Headline, Bio & CTAs (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
-            {/* Status / Availability Pill */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-cyan-500/10 dark:bg-cyan-500/10 light:bg-cyan-50 border border-cyan-500/25 text-cyan-400 dark:text-cyan-400 light:text-cyan-700 text-xs font-medium tracking-wide mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+          <div className="lg:col-span-7 flex flex-col items-start">
+            {/* Professional Headline Track */}
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 mb-5 bg-surface border border-surface-border rounded-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-racing-red" />
+              <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                {profile.title}
               </span>
-              <span>Software & Data Engineer · AI Researcher</span>
             </div>
 
-            {/* Main Name & Title */}
-            <h1 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight text-white dark:text-white light:text-slate-900 leading-[1.1] mb-4">
-              Hi, I&apos;m <span className="text-gradient">{profile.name}</span>
+            {/* Main Name & Bold Editorial Typography */}
+            <h1 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight text-foreground leading-[1.08] mb-4">
+              {profile.name}
             </h1>
 
-            {/* Multidisciplinary headline */}
-            <div className="text-lg sm:text-xl font-medium text-slate-300 dark:text-slate-300 light:text-slate-700 mb-4 flex flex-wrap items-center gap-x-2 gap-y-1">
-              <span className="text-cyan-400 font-semibold">Software Engineer</span>
-              <span className="text-slate-500">•</span>
-              <span className="text-blue-400 font-semibold">Data Engineer</span>
-              <span className="text-slate-500">•</span>
-              <span className="text-teal-400 font-semibold">Product Designer</span>
-              <span className="text-slate-500">•</span>
-              <span className="text-indigo-400 font-semibold">AI Researcher</span>
-            </div>
-
-            {/* Suggested Headline */}
-            <p className="font-display text-xl sm:text-2xl font-semibold text-slate-200 dark:text-slate-200 light:text-slate-800 tracking-tight mb-4">
+            {/* Stated Tagline */}
+            <p className="font-display text-lg sm:text-xl font-medium text-foreground tracking-tight mb-5 pb-5 border-b border-surface-border/60 w-full">
               {profile.tagline}
             </p>
 
-            {/* Introduction Copy */}
-            <p className="text-base sm:text-lg text-slate-400 dark:text-slate-400 light:text-slate-600 leading-relaxed max-w-2xl mb-8">
+            {/* Preserved Exact Intro Copy */}
+            <p className="text-sm sm:text-base text-muted leading-relaxed max-w-2xl mb-8">
               {profile.intro}
             </p>
 
-            {/* Core Action CTAs */}
-            <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-10">
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3.5 w-full sm:w-auto mb-10">
               <Link
                 href="#projects"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-sm tracking-wide shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-all duration-200 transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xs bg-foreground text-background hover:bg-racing-red hover:text-white font-mono text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm"
               >
                 <span>View My Work</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
 
               <Link
                 href="#contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-white/[0.05] dark:bg-white/[0.05] light:bg-slate-200/70 hover:bg-white/[0.1] dark:hover:bg-white/[0.1] light:hover:bg-slate-300 text-slate-200 dark:text-slate-200 light:text-slate-800 font-semibold text-sm tracking-wide border border-white/[0.1] dark:border-white/[0.1] light:border-slate-300 transition-all duration-200 transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xs bg-surface hover:bg-surface-hover text-foreground font-mono text-xs font-semibold uppercase tracking-wider border border-surface-border transition-colors shadow-sm"
               >
-                <Mail className="w-4 h-4 text-cyan-400" />
+                <Mail className="w-3.5 h-3.5 text-racing-red" />
                 <span>Contact Me</span>
               </Link>
             </div>
 
-            {/* Social Shortcuts & Profiles */}
-            <div className="flex items-center gap-3 pt-6 border-t border-white/[0.08] dark:border-white/[0.08] light:border-slate-200 w-full">
-              <span className="text-xs uppercase tracking-wider font-semibold text-slate-400">
-                Connect:
+            {/* Social Channels Strip */}
+            <div className="flex items-center gap-3 pt-6 border-t border-surface-border/70 w-full">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground mr-1">
+                INDEX //
               </span>
               <div className="flex items-center gap-2">
                 <a
                   href="https://lk.linkedin.com/in/thimathi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="LinkedIn profile of Thimathi Dissanayake"
-                  className="w-9 h-9 rounded-lg bg-white/[0.05] dark:bg-white/[0.05] light:bg-slate-100 border border-white/[0.08] dark:border-white/[0.08] light:border-slate-200 flex items-center justify-center text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-cyan-400 hover:border-cyan-500/30 transition-all"
+                  aria-label="LinkedIn profile"
+                  className="px-2.5 py-1.5 rounded-xs bg-surface hover:bg-surface-hover border border-surface-border hover:border-racing-red text-muted-foreground hover:text-foreground text-xs font-mono transition-colors flex items-center gap-1.5"
                 >
-                  <Linkedin className="w-4 h-4" />
+                  <Linkedin className="w-3 h-3" />
+                  <span className="hidden sm:inline">LinkedIn</span>
                 </a>
                 <a
                   href="https://github.com/thimathi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="GitHub profile of Thimathi Dissanayake"
-                  className="w-9 h-9 rounded-lg bg-white/[0.05] dark:bg-white/[0.05] light:bg-slate-100 border border-white/[0.08] dark:border-white/[0.08] light:border-slate-200 flex items-center justify-center text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-cyan-400 hover:border-cyan-500/30 transition-all"
+                  aria-label="GitHub profile"
+                  className="px-2.5 py-1.5 rounded-xs bg-surface hover:bg-surface-hover border border-surface-border hover:border-racing-red text-muted-foreground hover:text-foreground text-xs font-mono transition-colors flex items-center gap-1.5"
                 >
-                  <Github className="w-4 h-4" />
+                  <Github className="w-3 h-3" />
+                  <span className="hidden sm:inline">GitHub</span>
                 </a>
                 <a
                   href="https://www.researchgate.net/profile/Thimathi-Dissanayake"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="ResearchGate profile of Thimathi Dissanayake"
-                  className="w-9 h-9 rounded-lg bg-white/[0.05] dark:bg-white/[0.05] light:bg-slate-100 border border-white/[0.08] dark:border-white/[0.08] light:border-slate-200 flex items-center justify-center text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-cyan-400 hover:border-cyan-500/30 transition-all"
+                  aria-label="ResearchGate profile"
+                  className="px-2.5 py-1.5 rounded-xs bg-surface hover:bg-surface-hover border border-surface-border hover:border-racing-red text-muted-foreground hover:text-foreground text-xs font-mono transition-colors flex items-center gap-1.5"
                 >
-                  <BookOpen className="w-4 h-4" />
+                  <BookOpen className="w-3 h-3" />
+                  <span className="hidden sm:inline">ResearchGate</span>
                 </a>
                 <a
                   href="mailto:manaharatd@gmail.com"
-                  aria-label="Email Thimathi Dissanayake"
-                  className="w-9 h-9 rounded-lg bg-white/[0.05] dark:bg-white/[0.05] light:bg-slate-100 border border-white/[0.08] dark:border-white/[0.08] light:border-slate-200 flex items-center justify-center text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-cyan-400 hover:border-cyan-500/30 transition-all"
+                  aria-label="Primary email"
+                  className="px-2.5 py-1.5 rounded-xs bg-surface hover:bg-surface-hover border border-surface-border hover:border-racing-red text-muted-foreground hover:text-foreground text-xs font-mono transition-colors flex items-center gap-1.5"
                 >
-                  <Mail className="w-4 h-4" />
+                  <Mail className="w-3 h-3 text-racing-red" />
+                  <span className="hidden sm:inline">Email</span>
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Portrait & Interactive Technology Badge (5 cols) */}
+          {/* Right Column: Technical Portrait & Telemetry Frame (5 cols) */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center">
-            <div className="relative w-full max-w-[360px] sm:max-w-[400px]">
-              {/* Outer decorative gradient border */}
-              <div className="absolute -inset-1.5 rounded-[2.25rem] bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 opacity-60 blur-md transition duration-1000 group-hover:opacity-100 animate-glow" />
+            <div className="relative w-full max-w-[360px] sm:max-w-[390px] tech-corners bg-surface border border-surface-border p-2 rounded-xs shadow-md">
+              {/* Header Telemetry strip */}
+              <div className="flex items-center justify-between px-2.5 py-2 mb-2 bg-surface-muted text-[10px] font-mono text-muted-foreground border border-surface-border/60">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-racing-red rounded-xs" />
+                  <span className="font-semibold text-foreground">REG // PORTRAIT</span>
+                </div>
+                <span>FIRST-CLASS HONS (72%)</span>
+              </div>
 
-              {/* Portrait container card */}
-              <div className="relative rounded-[2rem] overflow-hidden bg-[#0e1320] dark:bg-[#0e1320] light:bg-slate-100 border border-white/10 dark:border-white/10 light:border-slate-300 shadow-2xl">
-                <div className="relative w-full h-[460px] sm:h-[500px]">
-                  <Image
-                    src={profile.portrait}
-                    alt={`${profile.name} - Professional Portrait`}
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    className="object-cover object-[center_12%]"
-                  />
-                  {/* Subtle dark gradient overlay at bottom of portrait for contrast */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#080b12] via-transparent to-transparent opacity-85 dark:opacity-85 light:opacity-50" />
+              {/* Portrait Frame */}
+              <div className="relative w-full h-[430px] sm:h-[470px] overflow-hidden bg-surface-muted border border-surface-border">
+                <Image
+                  src={profile.portrait}
+                  alt={`${profile.name} - Professional Portrait`}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 390px"
+                  className="object-cover object-[center_12%]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
 
-                  {/* Floating Tech Badges on Portrait */}
-                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-[#0e1524]/90 dark:bg-[#0e1524]/90 light:bg-white/95 border border-white/10 dark:border-white/10 light:border-slate-200 backdrop-blur-md">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                        <span className="text-xs font-semibold text-white dark:text-white light:text-slate-900">
-                          Verified Credentials
-                        </span>
-                      </div>
-                      <span className="text-[11px] font-mono text-cyan-400 font-medium">
-                        First-Class Hons (72%)
-                      </span>
+                {/* Bottom Technical Overlay Card */}
+                <div className="absolute bottom-3 left-3 right-3 p-3 bg-background/95 border border-surface-border rounded-xs backdrop-blur-sm">
+                  <div className="flex items-center justify-between mb-2 pb-1.5 border-b border-surface-border/60 font-mono text-[10px]">
+                    <span className="text-muted-foreground">DISCIPLINE MATRIX</span>
+                    <span className="text-racing-red font-semibold">UoW · CIRS 2026</span>
+                  </div>
+                  <div className="grid grid-cols-4 gap-1 text-center font-mono text-[10px]">
+                    <div className="p-1.5 bg-surface-muted border border-surface-border/50">
+                      <div className="text-foreground font-semibold">SW</div>
+                      <div className="text-[9px] text-muted-foreground">ENGINEER</div>
                     </div>
-
-                    <div className="grid grid-cols-4 gap-2 pt-2 border-t border-white/[0.08] dark:border-white/[0.08] light:border-slate-200">
-                      <div className="flex flex-col items-center text-center">
-                        <Terminal className="w-4 h-4 text-cyan-400 mb-0.5" />
-                        <span className="text-[10px] text-slate-300 dark:text-slate-300 light:text-slate-700 font-medium">Software</span>
-                      </div>
-                      <div className="flex flex-col items-center text-center">
-                        <Database className="w-4 h-4 text-blue-400 mb-0.5" />
-                        <span className="text-[10px] text-slate-300 dark:text-slate-300 light:text-slate-700 font-medium">Data Eng</span>
-                      </div>
-                      <div className="flex flex-col items-center text-center">
-                        <Cpu className="w-4 h-4 text-indigo-400 mb-0.5" />
-                        <span className="text-[10px] text-slate-300 dark:text-slate-300 light:text-slate-700 font-medium">AI / NLP</span>
-                      </div>
-                      <div className="flex flex-col items-center text-center">
-                        <Layers className="w-4 h-4 text-teal-400 mb-0.5" />
-                        <span className="text-[10px] text-slate-300 dark:text-slate-300 light:text-slate-700 font-medium">Design</span>
-                      </div>
+                    <div className="p-1.5 bg-surface-muted border border-surface-border/50">
+                      <div className="text-foreground font-semibold">DATA</div>
+                      <div className="text-[9px] text-muted-foreground">PIPELINES</div>
+                    </div>
+                    <div className="p-1.5 bg-surface-muted border border-surface-border/50">
+                      <div className="text-foreground font-semibold">AI/ML</div>
+                      <div className="text-[9px] text-muted-foreground">AFFECTIVE</div>
+                    </div>
+                    <div className="p-1.5 bg-surface-muted border border-surface-border/50">
+                      <div className="text-foreground font-semibold">UI/UX</div>
+                      <div className="text-[9px] text-muted-foreground">DESIGN</div>
                     </div>
                   </div>
                 </div>
