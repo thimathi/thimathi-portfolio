@@ -45,7 +45,9 @@ export const metadata: Metadata = {
     images: ["/thimathi-portrait.png"],
   },
   icons: {
-    icon: "/icon",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/thimathi-logo.png",
   },
 };
 

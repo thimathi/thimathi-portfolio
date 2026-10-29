@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
+import Image from "next/image";
 import {
   X,
   ExternalLink,
@@ -84,13 +85,25 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         {/* Modal Content */}
         <div className="p-6 sm:p-8 space-y-8 text-slate-300 dark:text-slate-300 light:text-slate-700">
           {/* Overview */}
-          <div>
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-slate-400 mb-2">
-              System Overview
-            </h4>
-            <p className="text-base sm:text-lg leading-relaxed text-slate-200 dark:text-slate-200 light:text-slate-800">
-              {project.longDescription || project.description}
-            </p>
+          <div className="flex flex-col sm:flex-row items-start gap-6">
+            {project.image && (
+              <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden bg-white/10 dark:bg-white/10 light:bg-slate-100 border border-white/20 p-2 shadow-xl flex-shrink-0">
+                <Image
+                  src={project.image}
+                  alt={`${project.title} branding`}
+                  fill
+                  className="object-contain p-1"
+                />
+              </div>
+            )}
+            <div className="flex-1">
+              <h4 className="text-xs uppercase tracking-wider font-semibold text-slate-400 mb-2">
+                System Overview
+              </h4>
+              <p className="text-base sm:text-lg leading-relaxed text-slate-200 dark:text-slate-200 light:text-slate-800">
+                {project.longDescription || project.description}
+              </p>
+            </div>
           </div>
 
           {/* Technical Architecture Breakdown */}

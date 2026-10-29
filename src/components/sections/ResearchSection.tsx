@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import {
   Brain,
   BookOpen,
@@ -60,10 +61,20 @@ export function ResearchSection() {
         <div className="p-8 sm:p-10 rounded-3xl bg-[#0e1424] dark:bg-[#0e1424] light:bg-white border border-white/[0.08] dark:border-white/[0.08] light:border-slate-200 shadow-2xl mb-12">
           {/* Paper Title & Status */}
           <div className="pb-6 mb-6 border-b border-white/[0.08] dark:border-white/[0.08] light:border-slate-200">
-            <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-              <span className="px-3 py-1 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-indigo-300 dark:text-indigo-300 light:text-indigo-700 text-xs font-semibold">
-                {research.status}
-              </span>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+              <div className="flex items-center gap-3">
+                <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-white/10 dark:bg-white/10 light:bg-slate-100 border border-white/20 p-1.5 shadow-lg flex-shrink-0">
+                  <Image
+                    src="/aurevia.png"
+                    alt="Aurevia Research Framework"
+                    fill
+                    className="object-contain p-0.5"
+                  />
+                </div>
+                <span className="px-3 py-1 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-indigo-300 dark:text-indigo-300 light:text-indigo-700 text-xs font-semibold">
+                  {research.status}
+                </span>
+              </div>
               <span className="text-xs font-medium text-slate-400">
                 Lead Author: {research.leadAuthor}
               </span>

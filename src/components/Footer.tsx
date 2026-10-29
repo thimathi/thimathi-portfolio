@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Linkedin,
   Github,
@@ -29,12 +30,14 @@ export function Footer() {
           {/* Col 1: Identity & Bio (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 p-[1.5px]">
-                <div className="w-full h-full bg-[#080c16] dark:bg-[#080c16] light:bg-white rounded-[10px] flex items-center justify-center">
-                  <span className="font-display font-bold text-xs text-cyan-400">
-                    TD
-                  </span>
-                </div>
+              <div className="relative w-9 h-9 rounded-xl overflow-hidden border border-cyan-500/30 bg-[#080c16] p-0.5 shadow-md flex-shrink-0">
+                <Image
+                  src="/thimathi-logo.png"
+                  alt="Thimathi Dissanayake Logo"
+                  width={36}
+                  height={36}
+                  className="w-full h-full object-contain rounded-lg"
+                />
               </div>
               <span className="font-display font-bold text-lg text-white dark:text-white light:text-slate-900">
                 {profile.name}

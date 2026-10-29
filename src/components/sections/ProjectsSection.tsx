@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   FolderGit2,
   ExternalLink,
@@ -82,13 +83,24 @@ export function ProjectsSection() {
                     </p>
                   </div>
 
-                  <div className="w-14 h-14 rounded-2xl bg-white/[0.06] dark:bg-white/[0.06] light:bg-white/90 border border-white/[0.08] dark:border-white/[0.08] light:border-slate-300 flex items-center justify-center text-cyan-400 shadow-inner group-hover:scale-110 transition-transform">
-                    {project.id === "baby-mine" ? (
-                      <Baby className="w-7 h-7" />
-                    ) : (
-                      <Cpu className="w-7 h-7" />
-                    )}
-                  </div>
+                  {project.image ? (
+                    <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-white/10 dark:bg-white/10 light:bg-white border border-white/20 p-2 shadow-xl flex-shrink-0 group-hover:scale-105 transition-transform">
+                      <Image
+                        src={project.image}
+                        alt={`${project.title} branding`}
+                        fill
+                        className="object-contain p-1"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-14 h-14 rounded-2xl bg-white/[0.06] dark:bg-white/[0.06] light:bg-white/90 border border-white/[0.08] dark:border-white/[0.08] light:border-slate-300 flex items-center justify-center text-cyan-400 shadow-inner group-hover:scale-110 transition-transform">
+                      {project.id === "baby-mine" ? (
+                        <Baby className="w-7 h-7" />
+                      ) : (
+                        <Cpu className="w-7 h-7" />
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
 

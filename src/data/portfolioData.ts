@@ -98,6 +98,7 @@ export interface EducationEntry {
   mark?: string;
   gpa?: string;
   logo: string;
+  secondaryLogo?: string;
   description: string;
   highlights: string[];
 }
@@ -113,6 +114,7 @@ export const portfolioData = {
     location: "Sri Lanka",
     availability: "Open to High-Impact Engineering & Research Collaborations",
     portrait: "/thimathi-portrait.png",
+    logo: "/thimathi-logo.png",
     emails: [
       { email: "manaharatd@gmail.com", label: "Primary Email", isPrimary: true },
       { email: "thimathid@hotmail.com", label: "Alternative Email", isPrimary: false },
@@ -272,6 +274,7 @@ export const portfolioData = {
       technologies: ["React Native", "Redux", "Supabase", "React.js", "Material UI", "Chart.js", "React Native SVG"],
       featured: true,
       badge: "Featured Product",
+      image: "/baby_mine.png",
       externalLink: "https://lnkd.in/p/grE_hC9A",
       architecture: {
         frontend: ["React Native (Cross-Platform iOS & Android)", "Redux Toolkit for Centralized State", "React Native SVG for Custom Visualizations"],
@@ -314,6 +317,7 @@ export const portfolioData = {
       technologies: ["Python", "FastAPI", "PyTorch", "BERT (NLP)", "CNN (Speech)", "Supabase", "PostgreSQL", "React.js", "Multimodal Fusion"],
       featured: true,
       badge: "Academic Research Project",
+      image: "/aurevia.png",
       externalLink: "https://www.researchgate.net/publication/408064387_Aurevia_A_Multimodal_Artificial_Intelligence_Framework_for_Burnout_Detection_and_Emotional_Well-Being_Monitoring_Using_Textual_and_Speech-Based_Emotional_Analysis",
       paperLink: "https://www.researchgate.net/publication/408064387_Aurevia_A_Multimodal_Artificial_Intelligence_Framework_for_Burnout_Detection_and_Emotional_Well-Being_Monitoring_Using_Textual_and_Speech-Based_Emotional_Analysis",
       architecture: {
@@ -477,7 +481,7 @@ export const portfolioData = {
       awardDate: "1 October 2026",
       classification: "First-Class Honours",
       mark: "Average: 72%",
-      logo: "/images/uow-logo.svg",
+      logo: "/images/uow-logo.png",
       secondaryLogo: "/images/cinec-logo.png",
       description:
         "Primary terminal undergraduate qualification achieved through a progressive software engineering degree pathway. Delivered in partnership with CINEC Campus.",

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useTheme } from "next-themes";
 import { Menu, X, Sun, Moon, ArrowUpRight, Code2 } from "lucide-react";
 import { portfolioData } from "@/data/portfolioData";
@@ -87,12 +88,14 @@ export function Navbar() {
             href="#home"
             className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg p-1"
           >
-            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 p-[1.5px] transition-transform duration-300 group-hover:scale-105">
-              <div className="w-full h-full bg-[#090d16] dark:bg-[#090d16] light:bg-white rounded-[10px] flex items-center justify-center">
-                <span className="font-display font-bold text-sm tracking-wider text-cyan-400">
-                  TD
-                </span>
-              </div>
+            <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-cyan-500/30 bg-[#090d16] p-0.5 transition-transform duration-300 group-hover:scale-105 shadow-md shadow-cyan-500/10 flex-shrink-0">
+              <Image
+                src="/thimathi-logo.png"
+                alt="Thimathi Dissanayake Logo"
+                width={40}
+                height={40}
+                className="w-full h-full object-contain rounded-lg"
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-display font-semibold text-base tracking-tight text-white dark:text-white light:text-slate-900 group-hover:text-cyan-400 transition-colors">

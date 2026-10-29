@@ -47,15 +47,33 @@ export function EducationSection() {
                 {/* Left: Institution Logo & Degree Title */}
                 <div className="flex items-start gap-4 sm:gap-5">
                   {/* Institution Logo Box */}
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white p-2.5 flex items-center justify-center flex-shrink-0 shadow-md border border-slate-200">
-                    <div className="relative w-full h-full">
-                      <Image
-                        src={item.logo}
-                        alt={`${item.institution} logo`}
-                        fill
-                        className="object-contain"
-                      />
+                  <div className="flex items-center gap-2.5 flex-shrink-0">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white p-2 flex items-center justify-center shadow-md border border-slate-200">
+                      <div className="relative w-full h-full">
+                        <Image
+                          src={item.logo}
+                          alt={`${item.institution} logo`}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
                     </div>
+
+                    {item.secondaryLogo && (
+                      <div
+                        className="hidden sm:flex w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white p-2 items-center justify-center shadow-md border border-slate-200"
+                        title={item.deliveryInstitution}
+                      >
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={item.secondaryLogo}
+                            alt={`${item.deliveryInstitution} logo`}
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   <div>
