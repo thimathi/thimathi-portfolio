@@ -116,8 +116,8 @@ export const portfolioData = {
     portrait: "/thimathi-portrait.png",
     logo: "/thimathi-logo.png",
     emails: [
-      { email: "manaharatd@gmail.com", label: "Primary Email", isPrimary: true },
-      { email: "thimathid@hotmail.com", label: "Alternative Email", isPrimary: false },
+      { email: "thimathid@hotmail.com", label: "Primary Email", isPrimary: true },
+      { email: "manaharatd@gmail.com", label: "Alternative Email", isPrimary: false },
     ],
     phone: {
       display: "+94 71 953 1023",
@@ -131,7 +131,7 @@ export const portfolioData = {
   socials: [
     {
       name: "LinkedIn",
-      url: "https://lk.linkedin.com/in/thimathi",
+      url: "https://www.linkedin.com/in/thimathi/",
       icon: "Linkedin",
       label: "Connect on LinkedIn",
     },

@@ -11,7 +11,7 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-background text-foreground flex flex-col selection:bg-racing-red/20 selection:text-racing-red">
+    <div className="relative min-h-screen bg-background text-foreground flex flex-col selection:bg-neutral-800 selection:text-white dark:selection:bg-neutral-200 dark:selection:text-neutral-900">
       {/* Sticky Top Navigation */}
       <Navbar />
 
