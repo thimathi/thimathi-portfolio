@@ -55,8 +55,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
-    { media: "(prefers-color-scheme: dark)", color: "#07090e" },
+    { media: "(prefers-color-scheme: light)", color: "#f8f9fb" },
+    { media: "(prefers-color-scheme: dark)", color: "#0c0e16" },
   ],
 };
 
@@ -67,7 +67,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-background text-foreground antialiased selection:bg-racing-red/20 selection:text-racing-red font-sans">
+      <body className="min-h-screen bg-background text-foreground antialiased font-sans">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

@@ -7,132 +7,148 @@ import {
   ExternalLink,
   ArrowRight,
   Layers,
+  Sparkles,
 } from "lucide-react";
+import { motion } from "framer-motion";
 import { portfolioData, Project } from "@/data/portfolioData";
 import { ProjectModal } from "@/components/ui/ProjectModal";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.12, ease: "easeOut" },
+  }),
+};
 
 export function ProjectsSection() {
   const { projects } = portfolioData;
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="py-20 sm:py-24 border-b border-surface-border bg-background">
+    <section id="projects" className="py-24 sm:py-32 bg-background relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Sector Tag */}
-        <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground uppercase tracking-wider mb-4">
-          <span className="w-2 h-2 bg-racing-red rounded-xs" />
-          <span>SECTOR 04 // ENGINEERING SYSTEMS & CASE STUDIES</span>
-        </div>
-
         {/* Section Header */}
-        <div className="max-w-3xl mb-14">
-          <h2 className="font-display font-bold text-2xl sm:text-4xl text-foreground tracking-tight mb-3">
-            Featured Software, Mobile & Research Systems
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className="mb-14"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 rounded-lg bg-accent-soft">
+              <Layers className="w-5 h-5 text-accent" />
+            </div>
+            <span className="text-sm font-medium text-accent tracking-wide">
+              Projects
+            </span>
+          </div>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-[2.75rem] text-foreground tracking-tight mb-3">
+            Featured Work & Case Studies
           </h2>
-          <p className="text-sm sm:text-base text-muted leading-relaxed">
-            Direct implementations demonstrating full-stack architecture, cross-platform mobile engineering, and machine learning pipelines.
+          <p className="text-base text-muted leading-relaxed max-w-2xl">
+            Full-stack applications, cross-platform mobile systems, and machine learning research pipelines.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Projects Grid — Formatted as Engineering Dossiers */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project, idx) => (
-            <div
+            <motion.div
               key={project.id}
-              className="bg-surface border border-surface-border rounded-xs flex flex-col justify-between hover:border-surface-border transition-colors shadow-sm"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              variants={fadeInUp}
+              custom={idx}
+              className="group bg-surface-card border border-surface-border rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
-              <div>
-                {/* Dossier Header Strip */}
-                <div className="flex items-center justify-between px-5 py-3 bg-surface-muted border-b border-surface-border text-xs font-mono">
-                  <div className="flex items-center gap-2">
-                    <span className="text-racing-red font-bold">CASE 0{idx + 1} //</span>
-                    <span className="text-muted-foreground uppercase tracking-wider">
+              {/* Card Header with Badge */}
+              <div className="flex items-center justify-between px-6 py-4 border-b border-surface-border/60">
+                <div className="flex items-center gap-3">
+                  {project.image && (
+                    <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-surface-muted border border-surface-border p-1 flex-shrink-0">
+                      <Image
+                        src={project.image}
+                        alt={`${project.title} icon`}
+                        fill
+                        className="object-contain p-0.5"
+                      />
+                    </div>
+                  )}
+                  <div>
+                    <h3 className="font-display font-bold text-lg text-foreground group-hover:text-accent transition-colors duration-200">
+                      {project.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground">
                       {project.category.split("·")[0].trim()}
-                    </span>
-                  </div>
-                  {project.badge && (
-                    <span className="px-2 py-0.5 rounded-xs bg-surface border border-surface-border text-[10px] uppercase font-semibold text-foreground">
-                      {project.badge}
-                    </span>
-                  )}
-                </div>
-
-                {/* Main Card Header with Authentic Logo */}
-                <div className="p-6 sm:p-7 border-b border-surface-border/60">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h3 className="font-display font-bold text-2xl text-foreground mb-1">
-                        {project.title}
-                      </h3>
-                      {project.subtitle && (
-                        <p className="font-mono text-xs text-muted-foreground tracking-wide">
-                          {project.subtitle}
-                        </p>
-                      )}
-                    </div>
-
-                    {project.image && (
-                      <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xs overflow-hidden bg-surface-muted border border-surface-border p-1.5 shadow-sm flex-shrink-0">
-                        <Image
-                          src={project.image}
-                          alt={`${project.title} branding`}
-                          fill
-                          className="object-contain p-1"
-                        />
-                      </div>
-                    )}
+                    </p>
                   </div>
                 </div>
+                {project.badge && (
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent-soft text-accent text-[11px] font-medium">
+                    <Sparkles className="w-3 h-3" />
+                    {project.badge}
+                  </span>
+                )}
+              </div>
 
-                {/* Description & Capabilities */}
-                <div className="p-6 sm:p-7 space-y-5">
-                  <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
-                    {project.description}
+              {/* Card Body */}
+              <div className="p-6 flex-1 space-y-5">
+                {project.subtitle && (
+                  <p className="text-sm font-medium text-foreground/80">
+                    {project.subtitle}
                   </p>
+                )}
 
-                  {/* Feature Highlights */}
-                  {project.featureGroups && project.featureGroups[0] && (
-                    <div className="p-3.5 bg-surface-muted border border-surface-border/50 rounded-xs">
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground font-semibold block mb-2">
-                        {project.featureGroups[0].groupName}:
-                      </span>
-                      <ul className="space-y-1.5">
-                        {project.featureGroups[0].items.slice(0, 3).map((item, itemIdx) => (
-                          <li
-                            key={itemIdx}
-                            className="text-xs text-muted leading-relaxed flex items-start gap-2"
-                          >
-                            <span className="w-1.5 h-1.5 rounded-xs bg-racing-red mt-1.5 flex-shrink-0" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+                <p className="text-sm text-muted leading-relaxed">
+                  {project.description}
+                </p>
 
-                  {/* Technology Stack Pills */}
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {project.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-0.5 rounded-xs bg-surface-raised border border-surface-border text-[11px] font-mono text-muted-foreground"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                {/* Feature Highlights */}
+                {project.featureGroups && project.featureGroups[0] && (
+                  <div className="p-4 bg-surface-raised/50 rounded-xl border border-surface-border/50">
+                    <span className="text-xs font-semibold text-foreground/70 block mb-2.5">
+                      {project.featureGroups[0].groupName}
+                    </span>
+                    <ul className="space-y-2">
+                      {project.featureGroups[0].items.slice(0, 3).map((item, itemIdx) => (
+                        <li
+                          key={itemIdx}
+                          className="text-xs text-muted leading-relaxed flex items-start gap-2.5"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
+                )}
+
+                {/* Technology Stack */}
+                <div className="flex flex-wrap gap-1.5">
+                  {project.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 rounded-lg bg-surface-muted border border-surface-border/60 text-[11px] font-medium text-muted-foreground"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              {/* Dossier Footer Actions */}
-              <div className="px-6 py-4 bg-surface-muted border-t border-surface-border flex flex-wrap items-center justify-between gap-3">
+              {/* Card Footer */}
+              <div className="px-6 py-4 bg-surface-raised/30 border-t border-surface-border/60 flex flex-wrap items-center justify-between gap-3">
                 <button
                   type="button"
                   onClick={() => setSelectedProject(project)}
-                  className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-foreground hover:text-racing-red transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
                 >
-                  <Layers className="w-3.5 h-3.5 text-racing-red" />
-                  <span>Architecture & Specs [ + ]</span>
+                  <Layers className="w-4 h-4" />
+                  <span>View Details</span>
                 </button>
 
                 <div className="flex items-center gap-3">
@@ -141,9 +157,9 @@ export function ProjectsSection() {
                       href={project.externalLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xs bg-surface hover:bg-surface-hover border border-surface-border hover:border-racing-red text-xs font-mono text-foreground transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-card hover:bg-surface-hover border border-surface-border text-xs font-medium text-foreground hover:text-accent transition-all duration-200"
                     >
-                      <span>External Link</span>
+                      <span>Visit</span>
                       <ExternalLink className="w-3 h-3" />
                     </a>
                   )}
@@ -151,15 +167,15 @@ export function ProjectsSection() {
                   {project.id === "aurevia" && (
                     <Link
                       href="#research"
-                      className="inline-flex items-center gap-1 text-xs font-mono text-racing-red hover:underline"
+                      className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:text-accent-hover transition-colors"
                     >
-                      <span>Research Section</span>
+                      <span>Research</span>
                       <ArrowRight className="w-3 h-3" />
                     </Link>
                   )}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

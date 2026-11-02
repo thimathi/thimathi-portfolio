@@ -2,40 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════════════
+   Light Mode — Clean, warm, sophisticated
+   ═══════════════════════════════════════════════════ */
 :root {
-  --background: #F5F5F2;
-  --foreground: #202124;
-  --surface: #FFFFFF;
-  --surface-card: #FFFFFF;
-  --surface-hover: #EDEDE8;
-  --surface-border: #D9DADD;
-  --surface-raised: #F9F9F7;
-  --surface-muted: #EAEAE5;
-  --muted: #60646C;
-  --muted-foreground: #484B52;
-  --racing-red: #C9362B;
-  --racing-red-soft: #FDEBE9;
-  --grid-line: rgba(0, 0, 0, 0.035);
-  --tech-crosshair: rgba(0, 0, 0, 0.14);
+  --background: #fafafa;
+  --foreground: #18181b;
+  --surface: #ffffff;
+  --surface-card: #ffffff;
+  --surface-hover: #f4f4f5;
+  --surface-border: #e4e4e7;
+  --surface-raised: #f4f4f5;
+  --surface-muted: #f0f0f3;
+  --muted: #71717a;
+  --muted-foreground: #52525b;
+
+  /* Primary accent — refined blue */
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-soft: rgba(37, 99, 235, 0.08);
+  --accent-foreground: #ffffff;
+
+  /* Secondary accent — warm amber */
+  --secondary: #d97706;
+  --secondary-soft: rgba(217, 119, 6, 0.08);
+
+  /* Dot pattern */
+  --dot-color: rgba(0, 0, 0, 0.04);
+  --dot-size: 1px;
+  --dot-spacing: 22px;
 }
 
+/* ═══════════════════════════════════════════════════
+   Dark Mode — Deep, warm, premium
+   ═══════════════════════════════════════════════════ */
 .dark {
-  --background: #151617;
-  --foreground: #F3F3F0;
-  --surface: #202224;
-  --surface-card: #202224;
-  --surface-hover: #282A2E;
-  --surface-border: #393B3E;
-  --surface-raised: #26292C;
-  --surface-muted: #1B1D1E;
-  --muted: #B3B5B8;
-  --muted-foreground: #8A8D93;
-  --racing-red: #E03E32;
-  --racing-red-soft: rgba(224, 62, 50, 0.12);
-  --grid-line: rgba(255, 255, 255, 0.03);
-  --tech-crosshair: rgba(255, 255, 255, 0.12);
+  --background: #09090b;
+  --foreground: #fafafa;
+  --surface: #18181b;
+  --surface-card: #1c1c20;
+  --surface-hover: #27272a;
+  --surface-border: #2e2e33;
+  --surface-raised: #1f1f23;
+  --surface-muted: #141417;
+  --muted: #a1a1aa;
+  --muted-foreground: #71717a;
+
+  /* Primary accent — brighter for dark */
+  --accent: #60a5fa;
+  --accent-hover: #3b82f6;
+  --accent-soft: rgba(96, 165, 250, 0.1);
+  --accent-foreground: #09090b;
+
+  /* Secondary accent */
+  --secondary: #fbbf24;
+  --secondary-soft: rgba(251, 191, 36, 0.08);
+
+  /* Dot pattern */
+  --dot-color: rgba(255, 255, 255, 0.03);
+  --dot-size: 1px;
+  --dot-spacing: 22px;
 }
 
+/* ═══════════════════════════════════════════════════
+   Base Styles
+   ═══════════════════════════════════════════════════ */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
@@ -46,78 +77,231 @@ body {
   background: var(--background);
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   overflow-x: hidden;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Subtle Engineering Cad Grid Background */
-.tech-grid-bg {
-  background-image: 
-    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-  background-size: 40px 40px;
+/* ═══════════════════════════════════════════════════
+   Selection Colors
+   ═══════════════════════════════════════════════════ */
+::selection {
+  background: rgba(37, 99, 235, 0.15);
+  color: var(--foreground);
 }
 
-/* Fine Technical Corner Brackets */
-.tech-corners {
-  position: relative;
-}
-.tech-corners::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid var(--racing-red);
-  border-left: 2px solid var(--racing-red);
-  pointer-events: none;
-}
-.tech-corners::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  right: -1px;
-  width: 8px;
-  height: 8px;
-  border-bottom: 2px solid var(--racing-red);
-  border-right: 2px solid var(--racing-red);
-  pointer-events: none;
+.dark ::selection {
+  background: rgba(96, 165, 250, 0.2);
+  color: var(--foreground);
 }
 
-/* Custom Scrollbar - Engineering Clean */
+/* ═══════════════════════════════════════════════════
+   Custom Scrollbar — Elegant & Minimal
+   ═══════════════════════════════════════════════════ */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #71757E;
-  border-radius: 2px;
+  background: rgba(113, 113, 122, 0.25);
+  border-radius: 100px;
+  transition: background 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #8A8D95;
+  background: rgba(113, 113, 122, 0.45);
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #393B3E;
+  background: rgba(161, 161, 170, 0.15);
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #4F5257;
+  background: rgba(161, 161, 170, 0.3);
 }
 
-/* Accessible focus styling */
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(113, 113, 122, 0.25) transparent;
+}
+
+.dark * {
+  scrollbar-color: rgba(161, 161, 170, 0.15) transparent;
+}
+
+/* ═══════════════════════════════════════════════════
+   Accessible Focus Styling
+   ═══════════════════════════════════════════════════ */
 :focus-visible {
-  outline: 2px solid var(--racing-red);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
+  border-radius: 4px;
 }
 
-/* Reduced motion preference */
+/* ═══════════════════════════════════════════════════
+   Utility Classes
+   ═══════════════════════════════════════════════════ */
+
+/* Subtle dot-pattern background */
+@layer utilities {
+  .bg-dot-pattern {
+    background-image: radial-gradient(
+      circle,
+      var(--dot-color) var(--dot-size),
+      transparent var(--dot-size)
+    );
+    background-size: var(--dot-spacing) var(--dot-spacing);
+  }
+
+  /* Glassmorphism panels */
+  .glass {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .dark .glass {
+    background: rgba(24, 24, 27, 0.6);
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-subtle {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .dark .glass-subtle {
+    background: rgba(24, 24, 27, 0.4);
+    border-color: rgba(255, 255, 255, 0.04);
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-subtle {
+    background: linear-gradient(
+      135deg,
+      var(--foreground) 0%,
+      var(--muted) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Ambient glow behind elements */
+  .glow {
+    position: relative;
+  }
+  .glow::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    opacity: 0;
+    z-index: -1;
+    filter: blur(20px);
+    transition: opacity 0.4s ease;
+  }
+  .glow:hover::after {
+    opacity: 0.25;
+  }
+
+  /* Subtle border glow */
+  .border-glow {
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+  }
+  .border-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      var(--accent-soft),
+      transparent 40%,
+      transparent 60%,
+      var(--secondary-soft)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Noise texture overlay */
+  .noise {
+    position: relative;
+  }
+  .noise::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Smooth hover lift for cards */
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.3s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Animated gradient border */
+  .animated-border {
+    background: linear-gradient(
+        var(--surface-card),
+        var(--surface-card)
+      )
+      padding-box,
+      linear-gradient(
+        135deg,
+        var(--accent),
+        var(--secondary),
+        var(--accent)
+      )
+      border-box;
+    border: 1px solid transparent;
+    background-size: 100% 100%, 200% 200%;
+    animation: animated-border-shift 4s ease infinite;
+  }
+
+  @keyframes animated-border-shift {
+    0%,
+    100% {
+      background-position: 0% 0%, 0% 50%;
+    }
+    50% {
+      background-position: 0% 0%, 100% 50%;
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   Reduced Motion Preference
+   ═══════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

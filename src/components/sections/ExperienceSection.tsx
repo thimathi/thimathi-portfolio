@@ -1,166 +1,198 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import {
   ExternalLink,
   MapPin,
   Calendar,
+  Briefcase,
 } from "lucide-react";
 import { portfolioData, Experience } from "@/data/portfolioData";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" },
+  }),
+};
 
 export function ExperienceSection() {
   const { experiences } = portfolioData;
 
   return (
-    <section id="experience" className="py-20 sm:py-24 border-b border-surface-border bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Sector Tag */}
-        <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground uppercase tracking-wider mb-4">
-          <span className="w-2 h-2 bg-racing-red rounded-xs" />
-          <span>SECTOR 03 // PROFESSIONAL TIMELINE & PARALLEL ROLES</span>
-        </div>
-
-        {/* Section Headline */}
-        <div className="max-w-3xl mb-14">
-          <h2 className="font-display font-bold text-2xl sm:text-4xl text-foreground tracking-tight mb-3">
-            Professional Experience & Parallel Specializations
+    <section id="experience" className="py-24 sm:py-32 bg-background">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className="mb-16"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 rounded-lg bg-accent-soft">
+              <Briefcase className="w-5 h-5 text-accent" />
+            </div>
+            <span className="text-sm font-medium text-accent tracking-wide">
+              Experience
+            </span>
+          </div>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-[2.75rem] text-foreground tracking-tight mb-3">
+            Professional Experience
           </h2>
-          <p className="text-sm sm:text-base text-muted leading-relaxed">
-            A track record spanning enterprise data pipelines, statistical modeling, user interface systems, and freelance full-stack application delivery.
+          <p className="text-base text-muted leading-relaxed max-w-2xl">
+            A track record spanning enterprise data pipelines, statistical
+            modeling, user interface systems, and freelance full-stack
+            application delivery.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Technical Experience Timeline */}
-        <div className="space-y-6">
-          {experiences.map((exp: Experience, idx: number) => {
-            const isCurrent = exp.period.includes("Present");
+        {/* Timeline */}
+        <div className="relative">
+          {/* Vertical timeline line */}
+          <div className="absolute left-[19px] sm:left-[23px] top-2 bottom-2 w-px bg-surface-border" />
 
-            return (
-              <div
-                key={exp.id}
-                className={`relative bg-surface border transition-colors rounded-xs p-6 sm:p-8 ${
-                  exp.isParallel
-                    ? "border-surface-border border-l-4 border-l-racing-red shadow-sm"
-                    : isCurrent
-                    ? "border-surface-border border-l-4 border-l-foreground shadow-sm"
-                    : "border-surface-border"
-                }`}
-              >
-                {/* Header: Role, Badges, Period */}
-                <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4 pb-4 mb-5 border-b border-surface-border">
-                  <div>
-                    <div className="flex flex-wrap items-center gap-2.5 mb-2">
-                      <span className="font-mono text-xs text-muted-foreground font-semibold">
-                        0{idx + 1} //
-                      </span>
-                      <h3 className="font-display font-bold text-xl sm:text-2xl text-foreground">
-                        {exp.role}
-                      </h3>
+          <div className="space-y-10">
+            {experiences.map((exp: Experience, idx: number) => {
+              const isCurrent = exp.period.includes("Present");
 
-                      {/* Parallel Role Indicator */}
-                      {exp.isParallel && (
-                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-xs bg-racing-red-soft text-racing-red border border-racing-red/20 font-mono text-[10px] font-semibold uppercase tracking-wide">
-                          <span className="w-1.5 h-1.5 rounded-full bg-racing-red" />
-                          {exp.parallelNote || "Parallel Specialization"}
-                        </span>
-                      )}
+              return (
+                <motion.div
+                  key={exp.id}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-60px" }}
+                  variants={fadeInUp}
+                  custom={idx}
+                  className="relative pl-12 sm:pl-14"
+                >
+                  {/* Timeline dot */}
+                  <div
+                    className={`absolute left-[13px] sm:left-[17px] top-7 w-3 h-3 rounded-full border-2 z-10 ${
+                      isCurrent
+                        ? "bg-emerald-500 border-emerald-300 shadow-[0_0_8px_rgba(16,185,129,0.4)]"
+                        : exp.isParallel
+                        ? "bg-accent border-accent/50"
+                        : "bg-surface-raised border-surface-border"
+                    }`}
+                  />
 
-                      {/* Current Role Indicator */}
-                      {isCurrent && !exp.isParallel && (
-                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-xs bg-surface-raised border border-surface-border font-mono text-[10px] text-foreground font-semibold uppercase tracking-wide">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                          Active Primary Position
-                        </span>
-                      )}
-                    </div>
+                  {/* Experience Card */}
+                  <div className="bg-surface-card rounded-2xl border border-surface-border shadow-card hover:shadow-card-hover p-6 sm:p-8 transition-all duration-300">
+                    {/* Header */}
+                    <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4 mb-5">
+                      <div>
+                        <div className="flex flex-wrap items-center gap-2.5 mb-2">
+                          <h3 className="font-display font-bold text-xl sm:text-2xl text-foreground">
+                            {exp.role}
+                          </h3>
 
-                    {/* Company Name & Links */}
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs sm:text-sm">
-                      <span className="font-semibold text-foreground">
-                        {exp.company}
-                      </span>
+                          {/* Parallel Role Badge */}
+                          {exp.isParallel && (
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent-soft text-accent text-xs font-medium">
+                              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                              {exp.parallelNote || "Parallel Role"}
+                            </span>
+                          )}
 
-                      {exp.website && (
-                        <a
-                          href={exp.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-muted-foreground hover:text-racing-red font-mono text-xs transition-colors"
-                        >
-                          <span>creativexlab.online</span>
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
-                      )}
+                          {/* Active Position Badge */}
+                          {isCurrent && !exp.isParallel && (
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 text-xs font-medium">
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                              Current
+                            </span>
+                          )}
+                        </div>
 
-                      {exp.linkedin && (
-                        <a
-                          href={exp.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-muted-foreground hover:text-racing-red font-mono text-xs transition-colors"
-                        >
-                          <span>company/nono-ai</span>
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
+                        {/* Company & Links */}
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+                          <span className="font-semibold text-foreground/80">
+                            {exp.company}
+                          </span>
 
-                  {/* Period & Location Metadata */}
-                  <div className="flex flex-col sm:items-end text-xs font-mono text-muted-foreground space-y-1">
-                    <div className="flex items-center gap-1.5 text-foreground font-medium">
-                      <Calendar className="w-3.5 h-3.5 text-racing-red" />
-                      <span>{exp.period}</span>
-                    </div>
-                    {exp.location && (
-                      <div className="flex items-center gap-1 text-[11px]">
-                        <MapPin className="w-3 h-3 text-muted-foreground" />
-                        <span>{exp.location}</span>
+                          {exp.website && (
+                            <a
+                              href={exp.website}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-muted hover:text-accent text-xs transition-colors"
+                            >
+                              <ExternalLink className="w-3 h-3" />
+                              <span>Website</span>
+                            </a>
+                          )}
+
+                          {exp.linkedin && (
+                            <a
+                              href={exp.linkedin}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-muted hover:text-accent text-xs transition-colors"
+                            >
+                              <ExternalLink className="w-3 h-3" />
+                              <span>LinkedIn</span>
+                            </a>
+                          )}
+                        </div>
                       </div>
-                    )}
+
+                      {/* Period & Location */}
+                      <div className="flex flex-wrap sm:flex-col sm:items-end gap-3 sm:gap-1.5 text-sm text-muted shrink-0">
+                        <div className="flex items-center gap-1.5">
+                          <Calendar className="w-3.5 h-3.5 text-muted/60" />
+                          <span>{exp.period}</span>
+                        </div>
+                        {exp.location && (
+                          <div className="flex items-center gap-1.5 text-xs">
+                            <MapPin className="w-3.5 h-3.5 text-muted/60" />
+                            <span>{exp.location}</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Summary */}
+                    <p className="text-sm text-foreground/80 leading-relaxed mb-5">
+                      {exp.summary}
+                    </p>
+
+                    {/* Responsibilities */}
+                    <div className="mb-6">
+                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+                        Key Responsibilities
+                      </h4>
+                      <ul className="space-y-2.5">
+                        {exp.responsibilities.map((resp, respIdx) => (
+                          <li
+                            key={respIdx}
+                            className="text-sm text-muted leading-relaxed pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[9px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-accent/40"
+                          >
+                            {resp}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Skills */}
+                    <div className="flex flex-wrap gap-2 pt-5 border-t border-surface-border/60">
+                      {exp.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1.5 rounded-lg bg-accent-soft text-accent text-xs font-medium"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-
-                {/* Summary */}
-                <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed mb-5">
-                  {exp.summary}
-                </p>
-
-                {/* Suggested Responsibilities */}
-                <div className="mb-6 bg-surface-muted p-4 border border-surface-border/50 rounded-xs">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground font-semibold block mb-3">
-                    TECHNICAL WORKFLOWS & RESPONSIBILITIES:
-                  </span>
-                  <ul className="space-y-2">
-                    {exp.responsibilities.map((resp, respIdx) => (
-                      <li
-                        key={respIdx}
-                        className="text-xs text-muted leading-relaxed flex items-start gap-2.5"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-xs bg-racing-red mt-1.5 flex-shrink-0" />
-                        <span>{resp}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Technology / Skill Stack Tags */}
-                <div className="flex flex-wrap items-center gap-1.5 pt-3 border-t border-surface-border">
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground mr-1">
-                    APPLIED //
-                  </span>
-                  {exp.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-2 py-0.5 rounded-xs bg-surface-raised border border-surface-border text-[11px] font-mono text-muted-foreground hover:text-foreground hover:border-racing-red transition-colors"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

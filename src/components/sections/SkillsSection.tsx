@@ -9,39 +9,42 @@ import {
   Brain,
   Wrench,
   Layers,
+  Zap,
 } from "lucide-react";
+import { motion } from "framer-motion";
 import { portfolioData, SkillCategory } from "@/data/portfolioData";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.08, ease: "easeOut" },
+  }),
+};
 
 export function SkillsSection() {
   const { skillsGrouped } = portfolioData;
   const [activeFilter, setActiveFilter] = useState<string>("all");
 
   const getCategoryIcon = (iconName: string) => {
+    const cls = "w-5 h-5 text-accent";
     switch (iconName) {
       case "Code":
-        return <Code className="w-4 h-4 text-racing-red" />;
+        return <Code className={cls} />;
       case "Smartphone":
-        return <Smartphone className="w-4 h-4 text-racing-red" />;
+        return <Smartphone className={cls} />;
       case "Server":
-        return <Server className="w-4 h-4 text-racing-red" />;
+        return <Server className={cls} />;
       case "Database":
-        return <Database className="w-4 h-4 text-racing-red" />;
+        return <Database className={cls} />;
       case "Brain":
-        return <Brain className="w-4 h-4 text-racing-red" />;
+        return <Brain className={cls} />;
       case "Wrench":
-        return <Wrench className="w-4 h-4 text-racing-red" />;
+        return <Wrench className={cls} />;
       default:
-        return <Layers className="w-4 h-4 text-racing-red" />;
+        return <Layers className={cls} />;
     }
-  };
-
-  const getCategoryCode = (category: string) => {
-    if (category.includes("Programming")) return "STACK // CORE";
-    if (category.includes("Frontend")) return "STACK // CLIENT";
-    if (category.includes("Backend")) return "STACK // SERVICES";
-    if (category.includes("Data")) return "STACK // DATABASE";
-    if (category.includes("AI")) return "STACK // ML-NLP";
-    return "STACK // TOOLS";
   };
 
   const filteredCategories =
@@ -50,89 +53,95 @@ export function SkillsSection() {
       : skillsGrouped.filter((cat) => cat.category === activeFilter);
 
   return (
-    <section id="skills" className="py-20 sm:py-24 border-b border-surface-border bg-background">
+    <section id="skills" className="py-24 sm:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Sector Tag */}
-        <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground uppercase tracking-wider mb-4">
-          <span className="w-2 h-2 bg-racing-red rounded-xs" />
-          <span>SECTOR 06 // TECHNICAL CAPABILITIES & TOOLING</span>
-        </div>
-
-        {/* Section Headline */}
-        <div className="max-w-3xl mb-12">
-          <h2 className="font-display font-bold text-2xl sm:text-4xl text-foreground tracking-tight mb-3">
-            Applied Engineering & Analytical Stack
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className="mb-14"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 rounded-lg bg-accent-soft">
+              <Zap className="w-5 h-5 text-accent" />
+            </div>
+            <span className="text-sm font-medium text-accent tracking-wide">
+              Skills & Technologies
+            </span>
+          </div>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-[2.75rem] text-foreground tracking-tight mb-3">
+            Technical Toolkit
           </h2>
-          <p className="text-sm sm:text-base text-muted leading-relaxed">
-            A verified, hands-on inventory of languages, frameworks, database architectures, and machine learning toolkits organized by domain.
+          <p className="text-base text-muted leading-relaxed max-w-2xl">
+            Languages, frameworks, databases, and machine learning tools organized by domain expertise.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Category Filter Tabs */}
-        <div className="flex flex-wrap gap-2 mb-10 pb-2 overflow-x-auto">
+        {/* Category Filter */}
+        <div className="flex flex-wrap gap-2 mb-10">
           <button
             type="button"
             onClick={() => setActiveFilter("all")}
-            className={`px-3 py-1.5 rounded-xs text-xs font-mono font-medium tracking-wide transition-colors ${
+            className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
               activeFilter === "all"
-                ? "bg-foreground text-background"
-                : "bg-surface hover:bg-surface-hover text-muted-foreground border border-surface-border"
+                ? "bg-accent text-accent-foreground shadow-sm"
+                : "bg-surface-card hover:bg-surface-hover text-muted-foreground border border-surface-border"
             }`}
           >
-            ALL CAPABILITIES
+            All
           </button>
           {skillsGrouped.map((cat) => (
             <button
               key={cat.category}
               type="button"
               onClick={() => setActiveFilter(cat.category)}
-              className={`px-3 py-1.5 rounded-xs text-xs font-mono font-medium tracking-wide transition-colors ${
+              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
                 activeFilter === cat.category
-                  ? "bg-foreground text-background"
-                  : "bg-surface hover:bg-surface-hover text-muted-foreground border border-surface-border"
+                  ? "bg-accent text-accent-foreground shadow-sm"
+                  : "bg-surface-card hover:bg-surface-hover text-muted-foreground border border-surface-border"
               }`}
             >
-              {cat.category}
+              {cat.category.split(" & ")[0]}
             </button>
           ))}
         </div>
 
-        {/* Skills Cards Grid */}
+        {/* Skills Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCategories.map((group: SkillCategory) => (
-            <div
+          {filteredCategories.map((group: SkillCategory, idx: number) => (
+            <motion.div
               key={group.category}
-              className="bg-surface border border-surface-border hover:border-racing-red/60 transition-colors rounded-xs p-6 shadow-sm flex flex-col justify-between"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              variants={fadeInUp}
+              custom={idx}
+              className="group bg-surface-card border border-surface-border rounded-2xl p-6 shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300"
             >
-              <div>
-                {/* Category Header */}
-                <div className="flex items-center justify-between pb-3 mb-5 border-b border-surface-border">
-                  <div className="flex items-center gap-2.5">
-                    <div className="p-1.5 rounded-xs bg-surface-raised">
-                      {getCategoryIcon(group.icon)}
-                    </div>
-                    <h3 className="font-display font-bold text-base text-foreground">
-                      {group.category}
-                    </h3>
-                  </div>
-                  <span className="font-mono text-[10px] text-muted-foreground font-semibold">
-                    {getCategoryCode(group.category)}
-                  </span>
+              {/* Category Header */}
+              <div className="flex items-center gap-3 pb-4 mb-5 border-b border-surface-border/60">
+                <div className="w-10 h-10 rounded-xl bg-accent-soft flex items-center justify-center group-hover:bg-accent/15 transition-colors">
+                  {getCategoryIcon(group.icon)}
                 </div>
-
-                {/* Skill Chips */}
-                <div className="flex flex-wrap gap-1.5">
-                  {group.skills.map((skill) => (
-                    <span
-                      key={skill.name}
-                      className="px-2.5 py-1 rounded-xs bg-surface-muted border border-surface-border text-xs font-mono text-foreground hover:border-racing-red transition-colors"
-                    >
-                      {skill.name}
-                    </span>
-                  ))}
-                </div>
+                <h3 className="font-display font-semibold text-base text-foreground">
+                  {group.category}
+                </h3>
               </div>
-            </div>
+
+              {/* Skill Chips */}
+              <div className="flex flex-wrap gap-2">
+                {group.skills.map((skill) => (
+                  <span
+                    key={skill.name}
+                    className="px-3 py-1.5 rounded-lg bg-surface-raised border border-surface-border/60 text-xs font-medium text-foreground/80 hover:border-accent/30 hover:text-accent transition-colors duration-200"
+                  >
+                    {skill.name}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
