@@ -95,7 +95,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative py-20 sm:py-28 bg-[#FAFAFA] dark:bg-[#121314] border-b border-neutral-200/80 dark:border-neutral-800/80 transition-colors"
+      className="relative pt-12 sm:pt-16 pb-20 sm:pb-28 bg-[#FAFAFA] dark:bg-[#121314] border-b border-neutral-200/80 dark:border-neutral-800/80 transition-colors"
     >
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         

@@ -384,131 +384,138 @@ export function HeroSection() {
       </div>
 
       {/* Bottom Client / Partner Brand Slideshow Marquee (Infinite Left-to-Right) */}
-      <div className="relative mt-8 sm:mt-14 pt-6 sm:pt-8 border-t border-neutral-200/60 dark:border-neutral-800/60 w-full overflow-hidden bg-gradient-to-t from-white/60 dark:from-neutral-950/40 to-transparent">
+      <div className="relative mt-6 sm:mt-8 py-3.5 sm:py-4 border-y border-neutral-200/70 dark:border-neutral-800/70 w-full overflow-hidden bg-neutral-100/40 dark:bg-neutral-900/30">
         {/* Subtle Edge Fade Masks for Smooth Infinite Loop */}
         <div className="relative w-full overflow-hidden mask-marquee">
-          <div className="flex w-max items-center gap-10 sm:gap-14 lg:gap-18 animate-marquee-ltr py-2 select-none">
-            {/* 2 Sets of Logos (each repeated twice to create ultra-wide smooth continuous track) */}
-            {[0, 1].map((batch) => (
+          <div className="flex w-max items-center animate-marquee-ltr select-none">
+            {/* 2 Sets of Logos (each repeated twice to create ultra-wide continuous track with zero blank spaces) */}
+            {[0, 1].map((setIndex) => (
               <div
-                key={`brand-batch-${batch}`}
-                aria-hidden={batch > 0}
-                className="flex items-center gap-10 sm:gap-14 lg:gap-18 shrink-0"
+                key={`brand-set-${setIndex}`}
+                aria-hidden={setIndex > 0}
+                className="flex items-center gap-8 sm:gap-12 lg:gap-14 pr-8 sm:pr-12 lg:pr-14 shrink-0"
               >
-                {/* 1. CreativeX Technology */}
-                <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
-                  <Image
-                    src="/images/creativex-logo.png"
-                    alt="CreativeX Technology"
-                    width={130}
-                    height={34}
-                    className="h-5 sm:h-6 w-auto object-contain dark:hidden"
-                  />
-                  <Image
-                    src="/images/creativex-logo-white.png"
-                    alt="CreativeX Technology"
-                    width={130}
-                    height={34}
-                    className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
-                  />
-                </div>
+                {[0, 1].map((subCycle) => (
+                  <React.Fragment key={`cycle-${setIndex}-${subCycle}`}>
+                    {/* 1. CreativeX Technology */}
+                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
+                      <Image
+                        src="/images/creativex-logo.png"
+                        alt="CreativeX Technology"
+                        width={130}
+                        height={34}
+                        className="h-5 sm:h-6 w-auto object-contain dark:hidden"
+                      />
+                      <Image
+                        src="/images/creativex-logo-white.png"
+                        alt="CreativeX Technology"
+                        width={130}
+                        height={34}
+                        className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
+                      />
+                    </div>
 
-                {/* 2. VENTREK */}
-                <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
-                  <Image
-                    src="/images/ventrek-logo.png"
-                    alt="VENTREK"
-                    width={140}
-                    height={36}
-                    className="h-5 sm:h-6 w-auto object-contain dark:hidden"
-                  />
-                  <Image
-                    src="/images/ventrek-logo-white.png"
-                    alt="VENTREK"
-                    width={140}
-                    height={36}
-                    className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
-                  />
-                </div>
+                    {/* 2. VENTREK */}
+                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
+                      <Image
+                        src="/images/ventrek-logo.png"
+                        alt="VENTREK"
+                        width={140}
+                        height={36}
+                        className="h-5 sm:h-6 w-auto object-contain dark:hidden"
+                      />
+                      <Image
+                        src="/images/ventrek-logo-white.png"
+                        alt="VENTREK"
+                        width={140}
+                        height={36}
+                        className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
+                      />
+                    </div>
 
-                {/* 3. NONO AI */}
-                <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center gap-2 shrink-0">
-                  <Image
-                    src="/images/nono-ai-logo.png"
-                    alt="NONO AI"
-                    width={26}
-                    height={26}
-                    className="h-5 sm:h-6 w-auto object-contain"
-                  />
-                  <span className="font-display font-extrabold text-sm sm:text-base tracking-tight text-neutral-800 dark:text-neutral-200">
-                    NONO AI
-                  </span>
-                </div>
+                    {/* 3. NONO AI */}
+                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center gap-2 shrink-0">
+                      <Image
+                        src="/images/nono-ai-logo.png"
+                        alt="NONO AI"
+                        width={26}
+                        height={26}
+                        className="h-5 sm:h-6 w-auto object-contain"
+                      />
+                      <span className="font-display font-extrabold text-sm sm:text-base tracking-tight text-neutral-800 dark:text-neutral-200">
+                        NONO AI
+                      </span>
+                    </div>
 
-                {/* 4. Baby Mine */}
-                <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
-                  <Image
-                    src="/images/baby-mine-logo.png"
-                    alt="Baby Mine"
-                    width={130}
-                    height={30}
-                    className="h-5 sm:h-6 w-auto object-contain dark:hidden"
-                  />
-                  <Image
-                    src="/images/baby-mine-logo-white.png"
-                    alt="Baby Mine"
-                    width={130}
-                    height={30}
-                    className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
-                  />
-                </div>
+                    {/* 4. Baby Mine */}
+                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
+                      <Image
+                        src="/images/baby-mine-logo.png"
+                        alt="Baby Mine"
+                        width={130}
+                        height={30}
+                        className="h-5 sm:h-6 w-auto object-contain dark:hidden"
+                      />
+                      <Image
+                        src="/images/baby-mine-logo-white.png"
+                        alt="Baby Mine"
+                        width={130}
+                        height={30}
+                        className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
+                      />
+                    </div>
 
-                {/* 5. CarePlus Pharmacy */}
-                <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
-                  <Image
-                    src="/images/careplus-logo.png"
-                    alt="CarePlus Pharmacy"
-                    width={140}
-                    height={30}
-                    className="h-5 sm:h-6 w-auto object-contain dark:hidden"
-                  />
-                  <Image
-                    src="/images/careplus-logo-white.png"
-                    alt="CarePlus Pharmacy"
-                    width={140}
-                    height={30}
-                    className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
-                  />
-                </div>
+                    {/* 5. CarePlus Pharmacy */}
+                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
+                      <Image
+                        src="/images/careplus-logo.png"
+                        alt="CarePlus Pharmacy"
+                        width={140}
+                        height={30}
+                        className="h-5 sm:h-6 w-auto object-contain dark:hidden"
+                      />
+                      <Image
+                        src="/images/careplus-logo-white.png"
+                        alt="CarePlus Pharmacy"
+                        width={140}
+                        height={30}
+                        className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
+                      />
+                    </div>
 
-                {/* 6. NovaCare */}
-                <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
-                  <Image
-                    src="/images/novacare-logo.png"
-                    alt="NovaCare"
-                    width={140}
-                    height={30}
-                    className="h-5 sm:h-6 w-auto object-contain dark:hidden"
-                  />
-                  <Image
-                    src="/images/novacare-logo-white.png"
-                    alt="NovaCare"
-                    width={140}
-                    height={30}
-                    className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
-                  />
-                </div>
+                    {/* 6. NovaCare */}
+                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
+                      <Image
+                        src="/images/novacare-logo.png"
+                        alt="NovaCare"
+                        width={140}
+                        height={30}
+                        className="h-5 sm:h-6 w-auto object-contain dark:hidden"
+                      />
+                      <Image
+                        src="/images/novacare-logo-white.png"
+                        alt="NovaCare"
+                        width={140}
+                        height={30}
+                        className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
+                      />
+                    </div>
 
-                {/* 7. Geometric Tech Mark */}
-                <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
-                  <Image
-                    src="/images/techmark-logo.png"
-                    alt="Partner Brand"
-                    width={28}
-                    height={28}
-                    className="h-5 sm:h-6 w-auto object-contain"
-                  />
-                </div>
+                    {/* 7. E-Tech Lab */}
+                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center gap-2 shrink-0">
+                      <Image
+                        src="/images/techmark-logo.png"
+                        alt="E-Tech Lab"
+                        width={24}
+                        height={24}
+                        className="h-5 sm:h-6 w-auto object-contain"
+                      />
+                      <span className="font-display font-semibold text-xs sm:text-sm tracking-tight text-neutral-800 dark:text-neutral-200">
+                        E-Tech Lab
+                      </span>
+                    </div>
+                  </React.Fragment>
+                ))}
               </div>
             ))}
           </div>
