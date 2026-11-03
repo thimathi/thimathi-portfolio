@@ -383,77 +383,134 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom Client / Partner Brand Strip */}
-      <div className="relative mt-8 sm:mt-14 pt-6 sm:pt-8 border-t border-neutral-200/60 dark:border-neutral-800/60 w-full bg-gradient-to-t from-white/60 dark:from-neutral-950/40 to-transparent">
-        <div className="max-w-5xl mx-auto px-4 sm:px-8">
-          <div className="grid grid-cols-2 place-items-center gap-6 sm:flex sm:items-center sm:justify-between sm:gap-10 text-neutral-600 dark:text-neutral-400">
-            {/* CreativeX Technology */}
-            <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center">
-              <Image
-                src="/images/creativex-logo.png"
-                alt="CreativeX Technology"
-                width={130}
-                height={34}
-                className="h-5 sm:h-6 w-auto object-contain dark:hidden"
-              />
-              <Image
-                src="/images/creativex-logo-white.png"
-                alt="CreativeX Technology"
-                width={130}
-                height={34}
-                className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
-              />
-            </div>
+      {/* Bottom Client / Partner Brand Slideshow Marquee (Infinite Left-to-Right) */}
+      <div className="relative mt-8 sm:mt-14 pt-6 sm:pt-8 border-t border-neutral-200/60 dark:border-neutral-800/60 w-full overflow-hidden bg-gradient-to-t from-white/60 dark:from-neutral-950/40 to-transparent">
+        {/* Subtle Edge Fade Masks for Smooth Infinite Loop */}
+        <div className="relative w-full overflow-hidden mask-marquee">
+          <div className="flex w-max items-center gap-10 sm:gap-14 lg:gap-18 animate-marquee-ltr py-2 select-none">
+            {/* 2 Sets of Logos (each repeated twice to create ultra-wide smooth continuous track) */}
+            {[0, 1].map((batch) => (
+              <div
+                key={`brand-batch-${batch}`}
+                aria-hidden={batch > 0}
+                className="flex items-center gap-10 sm:gap-14 lg:gap-18 shrink-0"
+              >
+                {/* 1. CreativeX Technology */}
+                <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
+                  <Image
+                    src="/images/creativex-logo.png"
+                    alt="CreativeX Technology"
+                    width={130}
+                    height={34}
+                    className="h-5 sm:h-6 w-auto object-contain dark:hidden"
+                  />
+                  <Image
+                    src="/images/creativex-logo-white.png"
+                    alt="CreativeX Technology"
+                    width={130}
+                    height={34}
+                    className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
+                  />
+                </div>
 
-            {/* NONO AI */}
-            <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center gap-2">
-              <Image
-                src="/images/nono-ai-logo.png"
-                alt="NONO AI"
-                width={26}
-                height={26}
-                className="h-5 sm:h-6 w-auto object-contain"
-              />
-              <span className="font-display font-extrabold text-sm sm:text-base tracking-tight text-neutral-800 dark:text-neutral-200">
-                NONO AI
-              </span>
-            </div>
+                {/* 2. VENTREK */}
+                <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
+                  <Image
+                    src="/images/ventrek-logo.png"
+                    alt="VENTREK"
+                    width={140}
+                    height={36}
+                    className="h-5 sm:h-6 w-auto object-contain dark:hidden"
+                  />
+                  <Image
+                    src="/images/ventrek-logo-white.png"
+                    alt="VENTREK"
+                    width={140}
+                    height={36}
+                    className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
+                  />
+                </div>
 
-            {/* Baby Mine */}
-            <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center">
-              <Image
-                src="/images/baby-mine-logo.png"
-                alt="Baby Mine"
-                width={130}
-                height={30}
-                className="h-5 sm:h-6 w-auto object-contain dark:hidden"
-              />
-              <Image
-                src="/images/baby-mine-logo-white.png"
-                alt="Baby Mine"
-                width={130}
-                height={30}
-                className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
-              />
-            </div>
+                {/* 3. NONO AI */}
+                <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center gap-2 shrink-0">
+                  <Image
+                    src="/images/nono-ai-logo.png"
+                    alt="NONO AI"
+                    width={26}
+                    height={26}
+                    className="h-5 sm:h-6 w-auto object-contain"
+                  />
+                  <span className="font-display font-extrabold text-sm sm:text-base tracking-tight text-neutral-800 dark:text-neutral-200">
+                    NONO AI
+                  </span>
+                </div>
 
-            {/* CarePlus Pharmacy */}
-            <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center">
-              <Image
-                src="/images/careplus-logo.png"
-                alt="CarePlus Pharmacy"
-                width={140}
-                height={30}
-                className="h-5 sm:h-6 w-auto object-contain dark:hidden"
-              />
-              <Image
-                src="/images/careplus-logo-white.png"
-                alt="CarePlus Pharmacy"
-                width={140}
-                height={30}
-                className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
-              />
-            </div>
+                {/* 4. Baby Mine */}
+                <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
+                  <Image
+                    src="/images/baby-mine-logo.png"
+                    alt="Baby Mine"
+                    width={130}
+                    height={30}
+                    className="h-5 sm:h-6 w-auto object-contain dark:hidden"
+                  />
+                  <Image
+                    src="/images/baby-mine-logo-white.png"
+                    alt="Baby Mine"
+                    width={130}
+                    height={30}
+                    className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
+                  />
+                </div>
+
+                {/* 5. CarePlus Pharmacy */}
+                <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
+                  <Image
+                    src="/images/careplus-logo.png"
+                    alt="CarePlus Pharmacy"
+                    width={140}
+                    height={30}
+                    className="h-5 sm:h-6 w-auto object-contain dark:hidden"
+                  />
+                  <Image
+                    src="/images/careplus-logo-white.png"
+                    alt="CarePlus Pharmacy"
+                    width={140}
+                    height={30}
+                    className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
+                  />
+                </div>
+
+                {/* 6. NovaCare */}
+                <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
+                  <Image
+                    src="/images/novacare-logo.png"
+                    alt="NovaCare"
+                    width={140}
+                    height={30}
+                    className="h-5 sm:h-6 w-auto object-contain dark:hidden"
+                  />
+                  <Image
+                    src="/images/novacare-logo-white.png"
+                    alt="NovaCare"
+                    width={140}
+                    height={30}
+                    className="h-5 sm:h-6 w-auto object-contain hidden dark:block"
+                  />
+                </div>
+
+                {/* 7. Geometric Tech Mark */}
+                <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
+                  <Image
+                    src="/images/techmark-logo.png"
+                    alt="Partner Brand"
+                    width={28}
+                    height={28}
+                    className="h-5 sm:h-6 w-auto object-contain"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
