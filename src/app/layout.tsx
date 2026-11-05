@@ -77,6 +77,9 @@ export const metadata: Metadata = {
     shortcut: "/favicon.png",
     apple: "/thimathi-logo.png",
   },
+  verification: {
+    google: "mfDg8YPJxXDBUQi3oLgniDKEqlVUrCmdkYic6kza2A4",
+  },
 };
 
 export const viewport: Viewport = {
@@ -96,6 +99,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta
+          name="google-site-verification"
+          content="mfDg8YPJxXDBUQi3oLgniDKEqlVUrCmdkYic6kza2A4"
+        />
         <StructuredData />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased selection:bg-neutral-800 selection:text-white dark:selection:bg-neutral-200 dark:selection:text-neutral-900 font-sans">
