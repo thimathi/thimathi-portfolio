@@ -86,3 +86,4 @@ His philosophy balances engineering rigor, relational data integrity, clean arch
 - Cloud & Infrastructure: AWS, GCP, Vercel, Docker
 - Styling & Interface: Tailwind CSS, Framer Motion, Material UI, CSS Modules
 - Design: Figma, Design Tokens, Responsive Layouts, Accessibility (WCAG)
+

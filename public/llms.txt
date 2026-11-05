@@ -34,3 +34,4 @@ Thimathi Dissanayake is a multidisciplinary technology professional specializing
 - **Frameworks & Libraries:** React, React Native, Next.js, FastAPI, PyTorch, Node.js, Redux Toolkit
 - **Data & Cloud:** PostgreSQL, Supabase, MySQL, Snowflake, AWS, GCP, Docker
 - **Design & Systems:** Figma, Tailwind CSS, Framer Motion, Design Tokens, UX Architecture
+
