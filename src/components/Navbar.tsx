@@ -9,11 +9,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { portfolioData } from "@/data/portfolioData";
 
 const navItems = [
-  { name: "Services", href: "#about" },
-  { name: "Portfolio", href: "#projects" },
-  { name: "About", href: "#experience" },
-  { name: "Research", href: "#research" },
-  { name: "Contact Me", href: "#contact" },
+  { name: "Services", href: "/#about" },
+  { name: "Portfolio", href: "/#projects" },
+  { name: "About", href: "/#experience" },
+  { name: "Research", href: "/#research" },
+  { name: "Contact Me", href: "/#contact" },
 ];
 
 export function Navbar() {
@@ -73,7 +73,7 @@ export function Navbar() {
           
           {/* Left Brand Lockup: Official TD Monogram + Thimathi Dissanayake */}
           <Link
-            href="#home"
+            href="/"
             onClick={() => setMobileMenuOpen(false)}
             className="flex items-center group focus:outline-none py-1"
             aria-label="Thimathi Dissanayake Portfolio Home"
@@ -101,7 +101,7 @@ export function Navbar() {
           {/* Desktop Center Navigation Links */}
           <nav className="hidden md:flex items-center gap-8 lg:gap-10">
             {navItems.map((item) => {
-              const target = item.href.substring(1);
+              const target = item.href.replace("/#", "").replace("#", "");
               const isActive = activeSection === target;
               return (
                 <Link
@@ -223,7 +223,7 @@ export function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col gap-4 max-h-[calc(100dvh-5rem)] overflow-y-auto">
               <nav className="flex flex-col gap-1">
                 {navItems.map((item) => {
-                  const target = item.href.substring(1);
+                  const target = item.href.replace("/#", "").replace("#", "");
                   const isActive = activeSection === target;
                   return (
                     <Link

@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   X,
   ExternalLink,
@@ -12,6 +13,7 @@ import {
   Cpu,
   ShieldAlert,
   ShoppingBag,
+  ArrowUpRight,
 } from "lucide-react";
 import { Project } from "@/data/portfolioData";
 
@@ -251,7 +253,15 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="font-mono text-[11px] text-neutral-500 dark:text-neutral-400">
             SYSTEM ARCHIVE // VERIFIED CAPABILITIES
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              href={`/projects/${project.id}`}
+              onClick={onClose}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 border border-neutral-200 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 font-mono text-xs font-semibold uppercase tracking-wider transition-colors"
+            >
+              <span>Full Case Study Page</span>
+              <ArrowUpRight className="w-3 h-3 text-[#3B7266] dark:text-[#52998B]" />
+            </Link>
             {project.externalLink && (
               <a
                 href={project.externalLink}

@@ -142,7 +142,15 @@ export function ProjectsSection() {
                   <span>Architecture & Specs</span>
                 </button>
 
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
+                  <Link
+                    href={`/projects/${project.id}`}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 border border-neutral-200/60 dark:border-neutral-700/60 text-xs font-medium text-neutral-800 dark:text-neutral-200 transition-colors"
+                  >
+                    <span>Full Case Study</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#3B7266] dark:text-[#52998B]" />
+                  </Link>
+
                   {project.externalLink && (
                     <a
                       href={project.externalLink}

@@ -1,0 +1,88 @@
+# Thimathi Dissanayake — Complete Engineering & Research Dossier
+
+Website: https://www.thimathi.online/
+Canonical Domain: https://www.thimathi.online/
+Contact: thimathid@hotmail.com | manaharatd@gmail.com | +94 71 953 1023
+Profiles:
+- LinkedIn: https://www.linkedin.com/in/thimathi/
+- GitHub: https://github.com/thimathi
+- ResearchGate: https://www.researchgate.net/publication/408064387_Aurevia_A_Multimodal_Artificial_Intelligence_Framework_for_Burnout_Detection_and_Emotional_Well-Being_Monitoring_Using_Textual_and_Speech-Based_Emotional_Analysis
+
+---
+
+## 1. Professional Identity & Biography
+Thimathi Dissanayake (also known professionally as Thimathi Manahara) is a Sri Lanka-based technologist operating across software engineering, enterprise data engineering, UI/UX systems design, and multimodal artificial intelligence research.
+
+He maintains two active industry appointments:
+1. Data Engineer at CreativeX Technology (Pvt) Ltd
+2. Product Designer at NONO AI
+
+His philosophy balances engineering rigor, relational data integrity, clean architecture, and human-centered design.
+
+---
+
+## 2. Academic Background
+1. **Bachelor of Science (Honours) in Computer Science**
+   - Awarding Body: University of Wolverhampton (United Kingdom)
+   - Delivering Institution: CINEC Campus (Faculty of Engineering & Technology, Sri Lanka)
+   - Classification: First-Class Honours (Overall Aggregate: 72%)
+   - Award Date: October 2024
+   - Key Modules: Advanced Databases, Collaborative Development, Machine Learning, Object-Oriented Design, Distributed Systems.
+
+2. **Higher National Diploma in Software Engineering (HNDSE)**
+   - Institution: National Institute of Business Management (NIBM, Sri Lanka)
+   - Performance: GPA 3.8 / 4.0
+   - Focus: Enterprise Application Architecture, Data Structures, Relational Database Management Systems.
+
+3. **Diploma in Software Engineering (DiSE)**
+   - Institution: National Institute of Business Management (NIBM, Sri Lanka)
+   - Performance: GPA 3.4 / 4.0
+
+---
+
+## 3. Professional Experience Breakdown
+- **Data Engineer** — CreativeX Technology (Pvt) Ltd (March 2026 – Present)
+  - Manages relational and cloud data stores across PostgreSQL, MySQL, Snowflake, GCP, and AWS.
+  - Architects automated data ingestion and recurring reporting pipelines.
+  - Implements field-level schema validation and data cleansing workflows.
+
+- **Product Designer** — NONO AI (March 2025 – Present)
+  - Leads UI/UX architecture, component libraries, and interactive prototyping for artificial intelligence software products.
+  - Establishes accessible design systems in Figma and translates them into code.
+
+- **Intern Data Analytics Engineer** — CreativeX Technology (Pvt) Ltd (September 2025 – March 2026)
+  - Assisted senior engineering leads in data pipeline ingestion, database cleansing, and field validation.
+
+- **Full Stack Developer (Freelance)** — E-Tech Lab Software Solutions (August 2024 – July 2025)
+  - Designed and deployed full-stack web applications, REST APIs, and database schemas for private clients.
+
+---
+
+## 4. Key Engineering Projects
+### Baby Mine — Maternal & Early Childhood Support Platform
+- URL: https://www.thimathi.online/projects/baby-mine
+- Architecture:
+  - Frontend: React Native (Cross-Platform iOS & Android), Redux Toolkit, React Native SVG
+  - Backend: Supabase Backend Infrastructure, PostgreSQL, Row-Level Security (RLS)
+  - Admin: React.js, Material UI, Chart.js, Supabase Functions
+- Scope: Comprehensive guidance and pediatric growth metric tracking spanning prenatal stages through the first four years of a child's life.
+
+### Aurevia — Multimodal Artificial Intelligence Framework
+- URL: https://www.thimathi.online/projects/aurevia
+- Architecture:
+  - Text Processing: Fine-tuned BERT Transformer Pipeline (78% classification accuracy)
+  - Speech Processing: CNN Architecture on acoustic spectrogram representations (83% classification accuracy)
+  - Multimodal Fusion: Late fusion dense neural network (85% classification accuracy across RAVDESS, TESS, and GoEmotions benchmarks)
+  - Backend: FastAPI, PyTorch, Supabase PostgreSQL
+- Research Output: Prepared as lead author academic submission for the 7th CINEC International Research Symposium (CIRS 2026).
+- Scope & Ethics Note: Affective computing research prototype exploring emotional well-being and burnout markers; not intended as a medical diagnostic device.
+
+---
+
+## 5. Technology Matrix
+- Programming Languages: TypeScript, Python, SQL, JavaScript
+- Frameworks: React 19, React Native, Next.js 15, FastAPI, Node.js, PyTorch
+- Databases: PostgreSQL, Supabase, MySQL, Snowflake
+- Cloud & Infrastructure: AWS, GCP, Vercel, Docker
+- Styling & Interface: Tailwind CSS, Framer Motion, Material UI, CSS Modules
+- Design: Figma, Design Tokens, Responsive Layouts, Accessibility (WCAG)
