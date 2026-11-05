@@ -210,6 +210,58 @@ export function Footer() {
 
         </div>
 
+        {/* Sitelinks Indexable Internal Navigation */}
+        <div className="py-6 border-b border-neutral-200/80 dark:border-neutral-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <nav aria-label="Footer Sitelinks Navigation" className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-mono">
+            <Link
+              href="/about"
+              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+            >
+              About
+            </Link>
+            <Link
+              href="/projects"
+              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+            >
+              Projects
+            </Link>
+            <Link
+              href="/research"
+              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+            >
+              Research
+            </Link>
+            <Link
+              href="/experience"
+              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+            >
+              Experience
+            </Link>
+            <Link
+              href="/contact"
+              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+            >
+              Contact
+            </Link>
+            <span className="text-neutral-300 dark:text-neutral-700 hidden md:inline">|</span>
+            <Link
+              href="/projects/baby-mine"
+              className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+            >
+              Baby Mine
+            </Link>
+            <Link
+              href="/projects/aurevia"
+              className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+            >
+              Aurevia AI
+            </Link>
+          </nav>
+          <div className="text-xs font-mono text-neutral-400 dark:text-neutral-500">
+            Colombo, Sri Lanka
+          </div>
+        </div>
+
         {/* Bottom Bar: Copyright & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-neutral-500 dark:text-neutral-400">
           <div className="text-center sm:text-left">

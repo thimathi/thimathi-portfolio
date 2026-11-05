@@ -12,7 +12,11 @@ export function StructuredData() {
     name: portfolioData.profile.name,
     givenName: "Thimathi",
     familyName: "Dissanayake",
-    alternateName: portfolioData.profile.preferredName,
+    alternateName: [
+      portfolioData.profile.preferredName,
+      "Thimathi Manahara",
+      "Thimathi Manahara Dissanayake",
+    ],
     url: SITE_URL,
     image: `${SITE_URL}${portfolioData.profile.portrait}`,
     jobTitle: [
@@ -77,12 +81,115 @@ export function StructuredData() {
     "@type": "WebSite",
     "@id": `${SITE_URL}/#website`,
     url: SITE_URL,
-    name: "Thimathi Dissanayake — Engineering, Data & AI Research Portfolio",
+    name: "Thimathi Dissanayake",
+    alternateName: [
+      "Thimathi Dissanayake Portfolio",
+      "Thimathi Manahara",
+      "Thimathi Online",
+      "Thimathi",
+    ],
     description: portfolioData.profile.metaDescription,
     inLanguage: "en-US",
     publisher: {
       "@id": `${SITE_URL}/#person`,
     },
+    hasPart: [
+      {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/about`,
+        name: "About Thimathi Dissanayake",
+        url: `${SITE_URL}/about`,
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/projects`,
+        name: "Software Engineering & AI Projects",
+        url: `${SITE_URL}/projects`,
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/research`,
+        name: "Aurevia: Multimodal AI & Emotion Research",
+        url: `${SITE_URL}/research`,
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/experience`,
+        name: "Professional Experience & Education",
+        url: `${SITE_URL}/experience`,
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/contact`,
+        name: "Contact & Collaboration",
+        url: `${SITE_URL}/contact`,
+      },
+    ],
+  };
+
+  const sitelinksNavigation = {
+    "@type": "ItemList",
+    "@id": `${SITE_URL}/#sitelinks`,
+    name: "Primary Sitelinks Navigation",
+    description: "Main sections and destinations on Thimathi Dissanayake Portfolio",
+    itemListElement: [
+      {
+        "@type": "SiteNavigationElement",
+        position: 1,
+        name: "About",
+        description:
+          "Professional background, engineering philosophy, and academic credentials of Thimathi Dissanayake.",
+        url: `${SITE_URL}/about`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 2,
+        name: "Projects",
+        description:
+          "Production software applications, full-stack systems, and architectural case studies.",
+        url: `${SITE_URL}/projects`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 3,
+        name: "Research",
+        description:
+          "Aurevia multimodal AI research on speech emotion recognition and affective computing presented at CIRS 2026.",
+        url: `${SITE_URL}/research`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 4,
+        name: "Experience",
+        description:
+          "Career history at CreativeX Technology, enterprise data pipelines, and education at University of Wolverhampton.",
+        url: `${SITE_URL}/experience`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 5,
+        name: "Contact",
+        description:
+          "Direct communication channels, professional inquiries, and collaboration opportunities.",
+        url: `${SITE_URL}/contact`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 6,
+        name: "Baby Mine Platform",
+        description:
+          "Case study of the maternal healthcare companion app built with React Native and Supabase.",
+        url: `${SITE_URL}/projects/baby-mine`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 7,
+        name: "Aurevia AI Research",
+        description:
+          "Dual-stream multimodal emotion recognition pipeline presented at CIRS 2026.",
+        url: `${SITE_URL}/projects/aurevia`,
+      },
+    ],
   };
 
   const profilePageEntity = {
@@ -101,7 +208,12 @@ export function StructuredData() {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [personEntity, websiteEntity, profilePageEntity],
+    "@graph": [
+      personEntity,
+      websiteEntity,
+      sitelinksNavigation,
+      profilePageEntity,
+    ],
   };
 
   return (
@@ -113,4 +225,3 @@ export function StructuredData() {
     />
   );
 }
-

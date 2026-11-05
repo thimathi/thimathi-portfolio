@@ -152,7 +152,7 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
               </li>
               <li>/</li>
               <li>
-                <Link href="/#projects" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+                <Link href="/projects" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
                   Projects
                 </Link>
               </li>

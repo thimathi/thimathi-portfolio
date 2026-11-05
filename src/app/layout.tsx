@@ -73,9 +73,15 @@ export const metadata: Metadata = {
     creator: "@thimathi",
   },
   icons: {
-    icon: "/favicon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png", sizes: "64x64" },
+      { url: "/thimathi-logo.png", type: "image/png", sizes: "192x192" },
+    ],
     shortcut: "/favicon.png",
-    apple: "/thimathi-logo.png",
+    apple: [
+      { url: "/thimathi-logo.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   verification: {
     google: "mfDg8YPJxXDBUQi3oLgniDKEqlVUrCmdkYic6kza2A4",
