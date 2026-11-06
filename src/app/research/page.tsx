@@ -77,6 +77,8 @@ export default function ResearchPage() {
       "@type": "Organization",
       name: "CIRS 2026 Research Conference",
     },
+    datePublished: "2026-03-01T00:00:00Z",
+    dateModified: new Date().toISOString().replace(/\.\d{3}Z$/, "Z"),
     url: "https://www.thimathi.online/research",
     sameAs: "https://www.researchgate.net/profile/Thimathi-Dissanayake",
     about: [

@@ -109,6 +109,8 @@ export default async function ProjectCaseStudyPage({ params }: PageProps) {
             name: "CINEC Campus — 7th CINEC International Research Symposium (CIRS 2026)",
             url: "https://www.cinec.edu/",
           },
+          datePublished: "2026-03-01T00:00:00Z",
+          dateModified: new Date().toISOString().replace(/\.\d{3}Z$/, "Z"),
           sameAs: project.paperLink ? [project.paperLink] : [],
         }
       : {

@@ -87,6 +87,8 @@ export default function AboutPage() {
       alumniOf: "University of Wolverhampton",
       worksFor: "CreativeX Technology",
     },
+    dateCreated: "2024-10-01T00:00:00Z",
+    dateModified: new Date().toISOString().replace(/\.\d{3}Z$/, "Z"),
   };
 
   return (

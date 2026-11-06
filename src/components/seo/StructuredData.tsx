@@ -192,18 +192,22 @@ export function StructuredData() {
     ],
   };
 
+  const currentIsoDateTime = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
+
   const profilePageEntity = {
     "@type": "ProfilePage",
     "@id": `${SITE_URL}/#profilepage`,
     url: SITE_URL,
     name: "Thimathi Dissanayake | Official Portfolio & Profile",
+    description: portfolioData.profile.metaDescription,
     isPartOf: {
       "@id": `${SITE_URL}/#website`,
     },
     mainEntity: {
       "@id": `${SITE_URL}/#person`,
     },
-    dateModified: new Date().toISOString().split("T")[0],
+    dateCreated: "2024-10-01T00:00:00Z",
+    dateModified: currentIsoDateTime,
   };
 
   const jsonLd = {
