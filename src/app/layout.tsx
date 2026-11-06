@@ -76,13 +76,15 @@ export const metadata: Metadata = {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon.png", type: "image/png", sizes: "64x64" },
-      { url: "/thimathi-logo.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon.png", type: "image/png", sizes: "192x192" },
+      { url: "/thimathi-logo.png", type: "image/png", sizes: "512x512" },
     ],
     shortcut: "/favicon.png",
     apple: [
-      { url: "/thimathi-logo.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
+  manifest: "/site.webmanifest",
   verification: {
     google: "mfDg8YPJxXDBUQi3oLgniDKEqlVUrCmdkYic6kza2A4",
   },
