@@ -111,6 +111,7 @@ export default function RootLayout({
           name="google-site-verification"
           content="mfDg8YPJxXDBUQi3oLgniDKEqlVUrCmdkYic6kza2A4"
         />
+        <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLMs.txt" />
         <StructuredData />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased selection:bg-neutral-800 selection:text-white dark:selection:bg-neutral-200 dark:selection:text-neutral-900 font-sans">

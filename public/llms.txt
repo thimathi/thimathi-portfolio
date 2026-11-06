@@ -1,37 +1,33 @@
 # Thimathi Dissanayake
 
-> Software Engineer · Data Engineer · Product Designer · AI Researcher
-> Portfolio: https://www.thimathi.online/
-> Location: Sri Lanka
-> Primary Email: thimathid@hotmail.com
-> Alternate Email: manaharatd@gmail.com
-> LinkedIn: https://www.linkedin.com/in/thimathi/
-> GitHub: https://github.com/thimathi
-> ResearchGate: https://www.researchgate.net/publication/408064387_Aurevia_A_Multimodal_Artificial_Intelligence_Framework_for_Burnout_Detection_and_Emotional_Well-Being_Monitoring_Using_Textual_and_Speech-Based_Emotional_Analysis
+> Software Engineer, Data Engineer, Product Designer, and AI Researcher specializing in scalable distributed software, enterprise data pipelines, and multimodal affective computing.
 
-## Summary
-Thimathi Dissanayake is a multidisciplinary technology professional specializing in enterprise data engineering, full-stack software and mobile application development, product design, and affective computing research. He holds a Bachelor of Science (Honours) in Computer Science with First-Class Honours (72% overall aggregate) from the University of Wolverhampton (delivered via CINEC Campus).
+Thimathi Dissanayake is a technology professional based in Sri Lanka holding a Bachelor of Science (Honours) in Computer Science with First-Class Honours (72% aggregate) from the University of Wolverhampton (delivered via CINEC Campus). He serves as a Data Engineer at CreativeX Technology (Pvt) Ltd and Product Designer at NONO AI, with academic research accepted for presentation at the 7th CINEC International Research Symposium (CIRS 2026).
 
-## Current Professional Roles
-- **Data Engineer** at CreativeX Technology (Pvt) Ltd (March 2026 – Present)
-  - Spearheading enterprise relational and cloud data architecture across PostgreSQL, MySQL, Snowflake, GCP, and AWS.
-  - Designing automated ingestion, validation, and analytics reporting pipelines.
-- **Product Designer** at NONO AI (March 2025 – Present)
-  - Leading user experience architecture, design systems, and interface prototyping for AI-driven products in parallel with data engineering responsibilities.
+## Main Pages
 
-## Academic Credentials
-- **BSc (Hons) Computer Science** (First-Class Honours, 72%) — University of Wolverhampton / CINEC Campus
-- **Higher National Diploma in Software Engineering (HNDSE)** (GPA 3.8 / 4.0) — National Institute of Business Management (NIBM)
-- **Diploma in Software Engineering (DiSE)** — National Institute of Business Management (NIBM)
+- [Homepage](https://www.thimathi.online/): Official portfolio showcasing core engineering services, technology stack, and professional highlights.
+- [About Thimathi](https://www.thimathi.online/about): Comprehensive biography, First-Class academic credentials, core principles, and competencies.
+- [Software Projects](https://www.thimathi.online/projects): Directory of production-grade software applications, mobile systems, and system architectures.
+- [AI Research](https://www.thimathi.online/research): Academic research overview on Aurevia multimodal emotion recognition presented at CIRS 2026.
+- [Professional Experience](https://www.thimathi.online/experience): Employment timeline at CreativeX Technology and comprehensive education milestones.
+- [Contact & Inquiries](https://www.thimathi.online/contact): Direct contact channels, professional email, and inquiry submission.
 
-## Flagship Projects & Case Studies
-- **Baby Mine** (https://www.thimathi.online/projects/baby-mine): All-in-one maternal and pediatric support platform built with React Native and Supabase PostgreSQL. Supports families from pregnancy through early childhood with health metric monitoring, automated vaccination alerts, and family support directories.
-- **Aurevia** (https://www.thimathi.online/projects/aurevia): Affective multimodal AI framework exploring workplace burnout indicators and emotional well-being monitoring. Combines BERT textual representation (78% benchmark accuracy) with CNN acoustic spectrogram features (83% benchmark accuracy), achieving 85% multimodal late fusion accuracy on evaluated benchmarks (RAVDESS, TESS, GoEmotions). Prepared as lead author research for the 7th CINEC International Research Symposium (CIRS 2026).
-  *Note: Aurevia is an affective computing research prototype rather than a clinically validated diagnostic device.*
+## Projects & Case Studies
 
-## Core Technical Competencies
-- **Languages:** TypeScript, Python, SQL, JavaScript
-- **Frameworks & Libraries:** React, React Native, Next.js, FastAPI, PyTorch, Node.js, Redux Toolkit
-- **Data & Cloud:** PostgreSQL, Supabase, MySQL, Snowflake, AWS, GCP, Docker
-- **Design & Systems:** Figma, Tailwind CSS, Framer Motion, Design Tokens, UX Architecture
+- [Baby Mine Case Study](https://www.thimathi.online/projects/baby-mine): All-in-one maternal and pediatric support mobile application built with React Native and Supabase PostgreSQL.
+- [Aurevia Research Study](https://www.thimathi.online/projects/aurevia): Deep-dive into the dual-stream affective computing architecture combining fine-tuned BERT NLP and acoustic SER CNNs with late-fusion decision logic.
 
+## AI Research & Publications
+
+- [Aurevia CIRS 2026 Preprint on ResearchGate](https://www.researchgate.net/publication/408064387_Aurevia_A_Multimodal_Artificial_Intelligence_Framework_for_Burnout_Detection_and_Emotional_Well-Being_Monitoring_Using_Textual_and_Speech-Based_Emotional_Analysis): Academic paper on multimodal affective computing for emotional well-being monitoring.
+
+## Professional Networks
+
+- [GitHub Profile](https://github.com/thimathi): Public source code repositories, software architecture implementations, and open-source contributions.
+- [LinkedIn Profile](https://www.linkedin.com/in/thimathi/): Verified professional experience, recommendations, and industry endorsements.
+- [ResearchGate Author Profile](https://www.researchgate.net/profile/Thimathi-Dissanayake): Academic research dossier, citations, and conference contributions.
+
+## Optional
+
+- [Full LLM Dossier](https://www.thimathi.online/llms-full.txt): Extended machine-readable dossier detailing exact module grades, technical architecture specifications, and dataset benchmarks.
