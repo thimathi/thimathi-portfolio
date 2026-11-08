@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -398,7 +396,7 @@ export function HeroSection() {
                 {[0, 1].map((subCycle) => (
                   <React.Fragment key={`cycle-${setIndex}-${subCycle}`}>
                     {/* 1. CreativeX Technology */}
-                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
+                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0 w-[110px] sm:w-[130px] h-5 sm:h-6">
                       <Image
                         src="/images/creativex-logo.png"
                         alt="CreativeX Technology"
@@ -416,7 +414,7 @@ export function HeroSection() {
                     </div>
 
                     {/* 2. VENTREK */}
-                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
+                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0 w-[115px] sm:w-[135px] h-5 sm:h-6">
                       <Image
                         src="/images/ventrek-logo.png"
                         alt="VENTREK"
@@ -434,7 +432,7 @@ export function HeroSection() {
                     </div>
 
                     {/* 3. NONO AI */}
-                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center gap-2 shrink-0">
+                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center gap-2 shrink-0 h-5 sm:h-6">
                       <Image
                         src="/images/nono-ai-logo.png"
                         alt="NONO AI"
@@ -448,7 +446,7 @@ export function HeroSection() {
                     </div>
 
                     {/* 4. Baby Mine */}
-                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
+                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0 w-[110px] sm:w-[130px] h-5 sm:h-6">
                       <Image
                         src="/images/baby-mine-logo.png"
                         alt="Baby Mine"
@@ -466,7 +464,7 @@ export function HeroSection() {
                     </div>
 
                     {/* 5. CarePlus Pharmacy */}
-                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
+                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0 w-[115px] sm:w-[135px] h-5 sm:h-6">
                       <Image
                         src="/images/careplus-logo.png"
                         alt="CarePlus Pharmacy"
@@ -484,7 +482,7 @@ export function HeroSection() {
                     </div>
 
                     {/* 6. NovaCare */}
-                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0">
+                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center shrink-0 w-[115px] sm:w-[135px] h-5 sm:h-6">
                       <Image
                         src="/images/novacare-logo.png"
                         alt="NovaCare"
@@ -502,7 +500,7 @@ export function HeroSection() {
                     </div>
 
                     {/* 7. E-Tech Lab */}
-                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center gap-2 shrink-0">
+                    <div className="transition-opacity hover:opacity-100 opacity-75 dark:opacity-60 flex items-center justify-center gap-2 shrink-0 h-5 sm:h-6">
                       <Image
                         src="/images/techmark-logo.png"
                         alt="E-Tech Lab"

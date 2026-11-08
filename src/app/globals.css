@@ -135,7 +135,14 @@ body {
   display: flex;
   width: max-content;
   will-change: transform;
+  transform: translateZ(0);
   animation: marquee-ltr 32s linear infinite;
+}
+
+/* Off-screen section rendering containment for maximum PageSpeed & low TBT */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
 }
 
 .animate-marquee-ltr:hover {

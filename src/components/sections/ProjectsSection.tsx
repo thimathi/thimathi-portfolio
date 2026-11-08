@@ -9,8 +9,13 @@ import {
   Layers,
   BookOpen,
 } from "lucide-react";
+import dynamic from "next/dynamic";
 import { portfolioData, Project } from "@/data/portfolioData";
-import { ProjectModal } from "@/components/ui/ProjectModal";
+
+const ProjectModal = dynamic(
+  () => import("@/components/ui/ProjectModal").then((mod) => mod.ProjectModal),
+  { ssr: false }
+);
 
 export function ProjectsSection() {
   const { projects } = portfolioData;

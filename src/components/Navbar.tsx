@@ -149,20 +149,22 @@ export function Navbar() {
               </svg>
             </a>
 
-            {mounted && (
-              <button
-                type="button"
-                onClick={toggleTheme}
-                aria-label="Toggle theme mode"
-                className="w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800/80 hover:bg-neutral-200 dark:hover:bg-neutral-700 flex items-center justify-center text-neutral-600 dark:text-neutral-300 transition-colors"
-              >
-                {theme === "dark" ? (
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label="Toggle theme mode"
+              className="w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800/80 hover:bg-neutral-200 dark:hover:bg-neutral-700 flex items-center justify-center text-neutral-600 dark:text-neutral-300 transition-colors"
+            >
+              {mounted ? (
+                theme === "dark" ? (
                   <Sun className="w-4 h-4" />
                 ) : (
                   <Moon className="w-4 h-4" />
-                )}
-              </button>
-            )}
+                )
+              ) : (
+                <span className="w-4 h-4 inline-block" />
+              )}
+            </button>
 
             <a
               href="mailto:thimathid@hotmail.com?subject=Request%20for%20CV%20-%20Thimathi%20Dissanayake"
@@ -175,20 +177,22 @@ export function Navbar() {
 
           {/* Mobile Menu & Theme Toggle (Visible below md) */}
           <div className="flex items-center gap-2 md:hidden">
-            {mounted && (
-              <button
-                type="button"
-                onClick={toggleTheme}
-                aria-label="Toggle theme mode"
-                className="w-9 h-9 rounded-full bg-neutral-100 dark:bg-neutral-800/80 hover:bg-neutral-200 dark:hover:bg-neutral-700 flex items-center justify-center text-neutral-600 dark:text-neutral-300 transition-colors"
-              >
-                {theme === "dark" ? (
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label="Toggle theme mode"
+              className="w-9 h-9 rounded-full bg-neutral-100 dark:bg-neutral-800/80 hover:bg-neutral-200 dark:hover:bg-neutral-700 flex items-center justify-center text-neutral-600 dark:text-neutral-300 transition-colors"
+            >
+              {mounted ? (
+                theme === "dark" ? (
                   <Sun className="w-4 h-4" />
                 ) : (
                   <Moon className="w-4 h-4" />
-                )}
-              </button>
-            )}
+                )
+              ) : (
+                <span className="w-4 h-4 inline-block" />
+              )}
+            </button>
 
             <button
               type="button"
