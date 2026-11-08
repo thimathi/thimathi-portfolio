@@ -252,7 +252,8 @@ export function HeroSection() {
               alt={`${profile.name} - Professional Portrait`}
               fill
               priority
-              sizes="(max-width: 640px) 320px, (max-width: 768px) 400px, 440px"
+              quality={85}
+              sizes="(max-width: 480px) 300px, (max-width: 640px) 340px, (max-width: 768px) 400px, 440px"
               className="object-contain object-bottom drop-shadow-sm transition-transform duration-500 hover:scale-[1.01]"
             />
           </div>

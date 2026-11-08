@@ -85,7 +85,6 @@ export function Navbar() {
                 width={210}
                 height={28}
                 className="h-6 sm:h-7 w-auto object-contain dark:hidden group-hover:opacity-80 transition-opacity"
-                priority
               />
               <Image
                 src="/thimathi-navbar-logo-white.png"
@@ -93,7 +92,6 @@ export function Navbar() {
                 width={210}
                 height={28}
                 className="h-6 sm:h-7 w-auto object-contain hidden dark:block group-hover:opacity-80 transition-opacity"
-                priority
               />
             </div>
           </Link>

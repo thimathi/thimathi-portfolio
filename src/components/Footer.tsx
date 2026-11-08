@@ -1,9 +1,6 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 import { portfolioData } from "@/data/portfolioData";
 
@@ -64,30 +61,6 @@ function FacebookIcon({ className }: { className?: string }) {
 
 export function Footer() {
   const { profile } = portfolioData;
-
-  const scrollToTop = (e?: React.MouseEvent) => {
-    if (e) {
-      e.preventDefault();
-    }
-    if (typeof window !== "undefined") {
-      const homeSection = document.getElementById("home");
-      if (homeSection) {
-        homeSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-      try {
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-      } catch {
-        window.scrollTo(0, 0);
-      }
-      if (document.scrollingElement) {
-        try {
-          document.scrollingElement.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-        } catch {
-          document.scrollingElement.scrollTop = 0;
-        }
-      }
-    }
-  };
 
   return (
     <footer className="relative bg-[#FAFAFA] dark:bg-[#0E0F10] border-t border-neutral-200/80 dark:border-neutral-800/80 transition-colors py-12 sm:py-16">
@@ -268,16 +241,14 @@ export function Footer() {
             © {new Date().getFullYear()} {profile.name} . All rights reserved.
           </div>
 
-          <motion.a
+          <a
             href="#home"
-            whileTap={{ scale: 0.95 }}
-            onClick={scrollToTop}
             aria-label="Scroll back to top"
-            className="group relative z-10 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 border border-neutral-200/80 dark:border-neutral-700/80 text-neutral-800 dark:text-neutral-200 text-xs uppercase tracking-wider transition-all cursor-pointer shadow-2xs select-none"
+            className="group relative z-10 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 border border-neutral-200/80 dark:border-neutral-700/80 text-neutral-800 dark:text-neutral-200 text-xs uppercase tracking-wider transition-all cursor-pointer shadow-2xs select-none active:scale-95"
           >
             <span>BACK TO TOP</span>
             <ArrowUp className="w-3.5 h-3.5 text-neutral-500 group-hover:-translate-y-0.5 transition-transform" />
-          </motion.a>
+          </a>
         </div>
 
       </div>
