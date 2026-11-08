@@ -9,6 +9,7 @@ Thimathi Dissanayake is a technology professional based in Sri Lanka holding a B
 - [Homepage](https://www.thimathi.online/): Official portfolio showcasing core engineering services, technology stack, and professional highlights.
 - [About Thimathi](https://www.thimathi.online/about): Comprehensive biography, First-Class academic credentials, core principles, and competencies.
 - [Software Projects](https://www.thimathi.online/projects): Directory of production-grade software applications, mobile systems, and system architectures.
+- [Technical Skills](https://www.thimathi.online/skills): Comprehensive matrix of programming languages, AI/ML frameworks, databases, and cloud infrastructure.
 - [AI Research](https://www.thimathi.online/research): Academic research overview on Aurevia multimodal emotion recognition presented at CIRS 2026.
 - [Professional Experience](https://www.thimathi.online/experience): Employment timeline at CreativeX Technology and comprehensive education milestones.
 - [Contact & Inquiries](https://www.thimathi.online/contact): Direct contact channels, professional email, and inquiry submission.

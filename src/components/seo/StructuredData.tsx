@@ -114,6 +114,12 @@ export function StructuredData() {
       },
       {
         "@type": "WebPage",
+        "@id": `${SITE_URL}/skills`,
+        name: "Technical Skills & Engineering Stack",
+        url: `${SITE_URL}/skills`,
+      },
+      {
+        "@type": "WebPage",
         "@id": `${SITE_URL}/experience`,
         name: "Professional Experience & Education",
         url: `${SITE_URL}/experience`,
@@ -160,6 +166,14 @@ export function StructuredData() {
       {
         "@type": "SiteNavigationElement",
         position: 4,
+        name: "Skills",
+        description:
+          "Comprehensive engineering matrix covering TypeScript, Python, Next.js, PyTorch, Fastify, and Cloud Architecture.",
+        url: `${SITE_URL}/skills`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 5,
         name: "Experience",
         description:
           "Career history at CreativeX Technology, enterprise data pipelines, and education at University of Wolverhampton.",
@@ -167,7 +181,7 @@ export function StructuredData() {
       },
       {
         "@type": "SiteNavigationElement",
-        position: 5,
+        position: 6,
         name: "Contact",
         description:
           "Direct communication channels, professional inquiries, and collaboration opportunities.",
@@ -175,7 +189,7 @@ export function StructuredData() {
       },
       {
         "@type": "SiteNavigationElement",
-        position: 6,
+        position: 7,
         name: "Baby Mine Platform",
         description:
           "Case study of the maternal healthcare companion app built with React Native and Supabase.",
@@ -183,7 +197,7 @@ export function StructuredData() {
       },
       {
         "@type": "SiteNavigationElement",
-        position: 7,
+        position: 8,
         name: "Aurevia AI Research",
         description:
           "Dual-stream multimodal emotion recognition pipeline presented at CIRS 2026.",

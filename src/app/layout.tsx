@@ -58,10 +58,16 @@ export const metadata: Metadata = {
     siteName: "Thimathi Dissanayake Portfolio",
     images: [
       {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Thimathi Dissanayake — Software Engineer & AI Developer",
+      },
+      {
         url: "/thimathi-portrait.png",
         width: 1152,
         height: 1536,
-        alt: "Thimathi Dissanayake — Software Engineer, Data Engineer & AI Researcher",
+        alt: "Thimathi Dissanayake Portrait",
       },
     ],
   },
@@ -69,7 +75,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: portfolioData.profile.metaTitle,
     description: portfolioData.profile.metaDescription,
-    images: ["/thimathi-portrait.png"],
+    images: ["/og-image.png"],
     creator: "@thimathi",
   },
   icons: {

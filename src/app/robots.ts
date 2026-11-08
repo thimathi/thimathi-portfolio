@@ -6,29 +6,29 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/", "/private/", "/admin/"],
+      },
+      {
         userAgent: "Googlebot",
         allow: "/",
-        disallow: ["/api/"],
       },
       {
         userAgent: "Bingbot",
         allow: "/",
-        disallow: ["/api/"],
       },
       {
         userAgent: "OAI-SearchBot",
         allow: "/",
-        disallow: ["/api/"],
+      },
+      {
+        userAgent: "ChatGPT-User",
+        allow: "/",
       },
       {
         userAgent: "GPTBot",
-        allow: "/",
-        disallow: ["/api/"],
-      },
-      {
-        userAgent: "*",
-        allow: "/",
-        disallow: ["/api/"],
+        disallow: "/",
       },
     ],
     sitemap: `${BASE_URL}/sitemap.xml`,
